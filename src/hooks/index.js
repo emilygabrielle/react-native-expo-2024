@@ -1,4 +1,4 @@
-import { FontProvider } from "./font";
+import { FontProvider } from "./Font";
 
 export function AppProvider({ children }) {
     return <FontProvider>{children}</FontProvider>
