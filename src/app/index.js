@@ -7,7 +7,23 @@ export default function App() {
     return (
     <View style={styles.container}>
       <Text style={styles.title}>Aplicativo Pronto para Usar</Text>
-      <Button title="Signin" onPress={()=>signIn({email: "super@email.com", password: "Super123!"})}/>
+
+      <Button title="Signin Super" 
+      onPress={()=>
+        signIn({email: "super@email.com", password: "Super123!"})
+        }
+        />
+         <Button title="Signin Adm" 
+      onPress={()=>
+        signIn({email: "adm@email.com", password: "Adm123!"})
+        }
+        />
+         <Button title="Signin User" 
+      onPress={()=>
+        signIn({email: "user@email.com", password: "User123!"})
+        }
+        />
+
       <Button title="Signout" onPress={()=>signOut()}/>
       <StatusBar style="auto" />
     </View>
