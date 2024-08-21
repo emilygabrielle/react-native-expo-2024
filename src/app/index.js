@@ -11,7 +11,7 @@ export default function App() {
       await signIn({email: "super@email.com", password: "Super123!"})
       router.replace("/");
     } catch (error) {
-      console.log(e);
+      console.log(error);
       
     }
   }
