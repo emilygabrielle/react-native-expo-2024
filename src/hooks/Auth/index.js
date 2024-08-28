@@ -15,39 +15,40 @@ export function AuthProvider({ children }) {
         user: null,
         role: null,
     });
-    
-    const {authUser} = useUsersDatabase();
 
-    const signIn = async ({email, password}) => {
+    const { authUser } = useUsersDatabase();
+
+    const signIn = async ({ email, password }) => {
         const response = await authUser({ email, password });
 
         if (!response) {
             setUser({
-                autenticated: false, 
-                user: null, 
+                autenticated: false,
+                user: null,
                 role: null,
             });
         }
 
         setUser({
-            autenticated: true, 
-            user: response, 
+            autenticated: true,
+            user: response,
             role: response.role,
         });
-     
+
     };
 
     const signOut = async () => {
         setUser({});
     };
 
-    useEffect(()=>{ console.log('AuthProvider: ', user);
-}, [user]);
+    useEffect(() => {
+        console.log('AuthProvider: ', user);
+    }, [user]);
 
 
 
     return (
-        <AuthContext.Provider value={{user, signIn, signOut}}>
+        <AuthContext.Provider value={{ user, signIn, signOut }}>
             {children}
         </AuthContext.Provider>
     );

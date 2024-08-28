@@ -16,7 +16,7 @@ export function useUsersDatabase() {
         }
     }
 
-    return{
+    return {
         authUser,
     };
 }

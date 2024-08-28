@@ -4,7 +4,7 @@ export async function initializeDatabase(database) {
             DROP TABLE IF EXISTS users;
             
             CREATE TABLE IF NOT EXISTS users (
-                id INTENGER PRIMARY KEY AUTOINCREMENT,
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
                 nome TEXT,
                 email TEXT NOT NULL UNIQUE,
                 senha TEXT NOT NULL DEFAULT 'A123456a!',
@@ -15,7 +15,7 @@ export async function initializeDatabase(database) {
             );
 
             INSERT OR REPLACE INTO users (nome, email, senha, role) VALUES ('Super', 'super@email.com', 'A123456a!', 'SUPER');
-            INSERT OR REPLACE INTO users (nome, email, senha, role) VALUES ('Admin', 'admin@email.com', 'A123456a!', 'ADMIN');
+            INSERT OR REPLACE INTO users (nome, email, senha, role) VALUES ('Adm', 'adm@email.com', 'A123456a!', 'ADM');
             INSERT OR REPLACE INTO users (nome, email, senha, role) VALUES ('User', 'user@email.com', 'A123456a!', 'USER');
             `);
     } catch (error) {

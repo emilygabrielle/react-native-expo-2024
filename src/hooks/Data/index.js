@@ -4,13 +4,13 @@ import { initializeDatabase } from "../../database/initializeDatabase";
 
 const DataContext = createContext({});
 
-export function DataProvider({children}) {
+export function DataProvider({ children }) {
 
     const [data, setData] = useState(false);
-    return ( 
-    <DataContext.Provider value={{ data }}>
-        <SQLiteProvider databaseName="data.db" onInit={initializeDatabase}>
-            {children}
+    return (
+        <DataContext.Provider value={{ data }}>
+            <SQLiteProvider databaseName="data.db" onInit={initializeDatabase}>
+                {children}
             </SQLiteProvider>
         </DataContext.Provider>
 
@@ -20,7 +20,7 @@ export function DataProvider({children}) {
 
 export function useData() {
     const context = useContext(DataContext);
-    if(!context) {
+    if (!context) {
         throw new Error('useData must be used within a DataProvider');
     }
     return context;
