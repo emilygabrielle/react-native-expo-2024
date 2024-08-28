@@ -1,9 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import {authUser, useUsersDatabase} from "../../database/useUsersDatabase";
+import { useUsersDatabase } from "../../database/useUsersDatabase";
 
 const AuthContext = createContext({});
 
-export const Role ={
+export const Role = {
     SUPER: "SUPER",
     ADM: "ADM",
     USER: "USER",

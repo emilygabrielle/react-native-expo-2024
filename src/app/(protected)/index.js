@@ -9,5 +9,5 @@ export default function Home () {
             <Text>Home</Text>
             <Button title="Sair" onPress={()=> signOut()} />
         </View>
-    )
+    );
 }

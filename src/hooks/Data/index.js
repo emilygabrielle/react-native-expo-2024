@@ -14,7 +14,7 @@ export function DataProvider({children}) {
             </SQLiteProvider>
         </DataContext.Provider>
 
-    )
+    );
 
 }
 
