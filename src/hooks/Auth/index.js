@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { useUsersDatabase } from "../../database/useUsersDatabase";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { ActivityIndicator, Text, View } from "react-native";
 
 const AuthContext = createContext({});
 
@@ -40,13 +41,8 @@ export function AuthProvider({ children }) {
         loadStorageData();
     },[]);
 
-    useEffect(() => {
-        console.log("AuthProvider: ", user);
-    }, [user]);
-
     const signIn = async ({ email, password }) => {
         const response = await authUser({ email, password });
-        console.log(response);
 
         if (!response) {
             setUser({
@@ -68,15 +64,18 @@ export function AuthProvider({ children }) {
     };
 
     const signOut = async () => {
-        await AsyncStorage.deleteItem("@payment:user");
+        await AsyncStorage.removeItem("@payment:user");
         setUser({});
     };
 
-    useEffect(() => {
-        console.log('AuthProvider: ', user);
-    }, [user]);
-
-
+    if (user?.autenticated === null ) {
+        return(
+            <View style={{flex:1, justifyContent:"center", alignItems:"center"}}>
+            <Text style={{fontSize:28, marginTop:15,}}>Carregando Dados do Usuário</Text>
+             <ActivityIndicator size="large" color="steelblue"  />
+            </View>
+        );
+      }
 
     return (
         <AuthContext.Provider value={{ user, signIn, signOut }}>
