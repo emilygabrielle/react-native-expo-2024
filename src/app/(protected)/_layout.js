@@ -1,11 +1,43 @@
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Drawer } from 'expo-router/drawer';
 import { Ionicons } from "@expo/vector-icons";
+import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { useAuth } from '../../hooks/Auth/index';
+
+function CustomDrawerContent(props) {
+  const { user, signOut} = useAuth();
+
+  return (
+    <View style={{ flex: 1}}>
+      <View style={{marginTop: 20, justifyContent:"center", alignItems: "center", backgroundColor: "#D3D3D3",paddingVertical: 10 }}>
+        <Image  
+        source={{
+          uri: 'https://static.vecteezy.com/ti/vetor-gratis/p1/5310488-cartoon-girl-desenho-ilustracao-clipart-bonito-gratis-vetor.jpg',}}
+          style={{  width: 100,
+            height: 100, borderRadius: 50, marginTop: 10}}
+        />
+        <Text style={{textAlign: "center", fontSize: 16, fontFamily: "regular",}}>
+          {user?.user?.nome}</Text>
+      </View>
+      <DrawerContentScrollView {...props}>
+      <DrawerItemList {...props} />
+     </DrawerContentScrollView>
+     <TouchableOpacity onPress={()=>signOut()}
+     style={{justifyContent: "center", alignItems: "center", 
+     height: 50, margin: 10, backgroundColor: "steelblue", borderRadius: 5, }}>
+      <Text style={{color: "white", fontFamily: "bold",}}>Deslogar</Text>
+     </TouchableOpacity>
+
+    </View>
+    
+  );
+}
 
 const DrawerLayout = () => {
     return (
         <GestureHandlerRootView style={{ flex: 1 }}>
-          <Drawer>
+          <Drawer drawerContent={(props) => <CustomDrawerContent {...props}/>}>
             <Drawer.Screen 
             name="index" 
             options={{drawerLabel: "Principal", headerTitle:"Principal", 
