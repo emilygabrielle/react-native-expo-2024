@@ -10,7 +10,7 @@ function CustomDrawerContent(props) {
 
   return (
     <View style={{ flex: 1}}>
-      <View style={{marginTop: 20, justifyContent:"center", alignItems: "center", backgroundColor: "#D3D3D3",paddingVertical: 10 }}>
+      <View style={{marginTop: 20, justifyContent:"center", alignItems: "center", backgroundColor: "pink",paddingVertical: 10 }}>
         <Image  
         source={{
           uri: 'https://static.vecteezy.com/ti/vetor-gratis/p1/5310488-cartoon-girl-desenho-ilustracao-clipart-bonito-gratis-vetor.jpg',}}
@@ -25,7 +25,7 @@ function CustomDrawerContent(props) {
      </DrawerContentScrollView>
      <TouchableOpacity onPress={()=>signOut()}
      style={{justifyContent: "center", alignItems: "center", 
-     height: 50, margin: 10, backgroundColor: "steelblue", borderRadius: 5, }}>
+     height: 50, margin: 10, backgroundColor: "pink", borderRadius: 5, }}>
       <Text style={{color: "white", fontFamily: "bold",}}>Deslogar</Text>
      </TouchableOpacity>
 
