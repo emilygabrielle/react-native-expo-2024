@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     page: {
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#D3D3D3",
+        backgroundColor: "#ADD8E6",
         padding: 10,
     },
     bullteContent:{

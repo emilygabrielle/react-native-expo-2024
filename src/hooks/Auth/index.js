@@ -72,7 +72,7 @@ export function AuthProvider({ children }) {
         return(
             <View style={{flex:1, justifyContent:"center", alignItems:"center"}}>
             <Text style={{fontSize:28, marginTop:15,}}>Carregando Dados do Usuário</Text>
-             <ActivityIndicator size="large" color="#C71585"  />
+             <ActivityIndicator size="large" color="lightblue"  />
             </View>
         );
       }

@@ -52,7 +52,7 @@ export default function App() {
          />
        <Ionicons 
        name={passwordVisibility ? "eye-off-outline" : "eye-outline"}
-       size={20} color="steelblue" 
+       size={20} color="skyblue" 
        onPress={tooglePasswordVisibility}/>
       </View>
 
@@ -60,17 +60,17 @@ export default function App() {
       style={styles.button}
       title="Entrar" 
       onPress={handleEntrarSuper}
-      color="steelblue" 
+      color="skyblue" 
       />
       <Button 
       title="Sobre" 
       onPress={() => router.push("/about")} 
-      color="steelblue" 
+      color="skyblue" 
       />
       <Button
        title="Sair do Aplicativo" 
        onPress={() => BackHandler.exitApp()}
-       color="steelblue"  
+       color="skyblue"  
        />
       <StatusBar style="auto" />
     </View>
