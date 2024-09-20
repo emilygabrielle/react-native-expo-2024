@@ -20,7 +20,7 @@ export function Banner() {
         </View>
 
         <View key="3" style={styles.page}>
-            <Image source={require('../../../src/assets/images/banner3.png')} style={{width:400, height: 220, marginLeft: 18, }}/>
+        <Image source={require('../../../src/assets/images/banner3.png')} style={{width: 400, height: 220, marginLeft:20,}}/>
         </View>
     </PagerView>
     <View style={styles.bullteContent}> 

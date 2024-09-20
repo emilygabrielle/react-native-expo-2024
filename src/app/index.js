@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Alert, BackHandler, Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Alert, BackHandler, Button, Image, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useAuth } from '../hooks/Auth';
 import { router } from 'expo-router';
 import { Ionicons } from "@expo/vector-icons";
@@ -30,7 +30,8 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Aplicativo Pronto para Usar</Text>
+      <Image source={require("")} />
+      <Text style={styles.title}>Versos Vivos</Text>
       <View style={styles.inputbox}>
         <Ionicons name="mail-open-outline" size={20} color="black" />
         <TextInput 
