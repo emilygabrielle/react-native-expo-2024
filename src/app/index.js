@@ -30,7 +30,6 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Image source={require("")} />
       <Text style={styles.title}>Versos Vivos</Text>
       <View style={styles.inputbox}>
         <Ionicons name="mail-open-outline" size={20} color="black" />
