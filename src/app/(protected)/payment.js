@@ -136,11 +136,11 @@ export default function Payment() {
                     </Picker>
             </View>
             <View style={styles.inputView}>
-                <Text>{data.toISOString}</Text>
+                <Text onPress={() => setViewCalendar(true)}>{data.toLocaleDateString().split("T")[0]}</Text>
                 {
                     viewCalendar && (
                         <DateTimePicker value={data} 
-                        onChange={(event, selectedDate)=>setData(selectedDate)}/>
+                        onChange={(event, selectedDate)=>{setData(selectedDate);setViewCalendar(false)}}/>
                     )
                 }
 
