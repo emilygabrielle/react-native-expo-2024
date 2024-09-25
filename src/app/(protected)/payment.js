@@ -160,9 +160,9 @@ export default function Payment() {
                 <TextInput placeholder="Observações" style={styles.inputObservacao} value={observacao} onChangeText={setObservacao} multiline={true}/>
             </View>
             <View style={styles.contentButtons}>
-                <Button title="Salvar"/>
-                <Button title="Continuar"/>
-                <Button title="Cancelar" onPress={() => router.back()} />
+                <Button title="Salvar" color="#e6b372" />
+                <Button title="Continuar" color="#e6b372" />
+                <Button title="Cancelar" onPress={() => router.back()} color="#e6b372" />
             </View>
         </View>
     );

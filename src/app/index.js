@@ -30,6 +30,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <Image source={require('../../src/assets/images/logo.png')} style={{width: 270, height: 220}}/>
       <Text style={styles.title}>Versos Vivos</Text>
       <View style={styles.inputbox}>
         <Ionicons name="mail-open-outline" size={20} color="black" />
@@ -52,7 +53,7 @@ export default function App() {
          />
        <Ionicons 
        name={passwordVisibility ? "eye-off-outline" : "eye-outline"}
-       size={20} color="skyblue" 
+       size={20} color="black" 
        onPress={tooglePasswordVisibility}/>
       </View>
 
@@ -60,17 +61,17 @@ export default function App() {
       style={styles.button}
       title="Entrar" 
       onPress={handleEntrarSuper}
-      color="skyblue" 
+      color="#e6b372" 
       />
       <Button 
       title="Sobre" 
       onPress={() => router.push("/about")} 
-      color="skyblue" 
+      color="#e6b372" 
       />
       <Button
        title="Sair do Aplicativo" 
        onPress={() => BackHandler.exitApp()}
-       color="skyblue"  
+       color="#e6b372"  
        />
       <StatusBar style="auto" />
     </View>
@@ -86,8 +87,8 @@ const styles = StyleSheet.create({
     gap: 15,
   },
   title: {
-    fontFamily: "light",
-    fontSize: 20,
+    fontFamily: "regular",
+    fontSize: 25,
   },
   inputbox: {
     flexDirection: "row",
@@ -95,13 +96,19 @@ const styles = StyleSheet.create({
     marginHorizontal: 40,
     marginVertical: 10,
     alignItems: "center",
+    borderWidth: 1,
+    borderColor: "#999",
+    borderRadius: 10,
+    height: 45,
   },
   emailinput: {
     flex: 1,
-    fontFamily: "regular",
+    fontFamily: "light",
     fontSize: 20,
   },
   button:{
     width: "100%",
+    height: 40,
+
   }
 });

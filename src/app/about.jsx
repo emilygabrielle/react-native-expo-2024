@@ -1,10 +1,10 @@
 import { router } from "expo-router";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { Button, ScrollView, StyleSheet, Text, View } from "react-native";
 
 export default function About () {
     return (
         <View style={styles.container}> 
-        <Text style={styles.titulo}>Versos Vivos</Text>
+        <Text style={styles.titulo}>Versos Vivos📜</Text>
         <Text style={styles.sub}>O App que faz a Poesia ganhar Vida!</Text>
             <Text style={styles.texto}>
             Olá! É um prazer te apresentar o Versos Vivos, o aplicativo ideal para todos que têm uma paixão 
@@ -15,16 +15,15 @@ export default function About () {
             obras por tema, autor ou estilo, tudo para inspirar sua própria escrita.</Text>
             <Text style={styles.texto}>Se você se sentir inspirado, pode usar nossa ferramenta de criação para dar vida aos seus próprios poemas. Com 
             sugestões de temas ao seu dispor, escrever se torna uma experiência prazerosa e descomplicada.</Text>
-            <Button title="Voltar" onPress={() => {router.replace("/")}} color="skyblue"  />
+            <Button title="Voltar" onPress={() => {router.replace("/")}} color="#e6b372"  />
         </View>
     );
 }
 const styles = StyleSheet.create({
 
     container:{
-        position: "absolute",
         flex: 1,
-        margin: 13,
+        padding: 20,
     },
     titulo:{
         fontSize: 20,
@@ -35,7 +34,6 @@ const styles = StyleSheet.create({
     },
     sub:{
         fontSize: 16,
-        marginTop: 5,
         marginBottom: 10,
         textAlign: "center",
     },
@@ -45,7 +43,8 @@ const styles = StyleSheet.create({
         marginTop: 10,
         textAlign: "justify",
         lineHeight: 25,
-        padding: 6,
-        
+    },
+    Button:{
+        width: 30,
     }
 })

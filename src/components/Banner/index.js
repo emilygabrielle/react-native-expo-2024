@@ -12,11 +12,11 @@ export function Banner() {
   <View style={styles.container}>
     <PagerView initialPage={0} style={styles.content} onPageSelected={onPageSelected}>
         <View key="1" style={styles.page}>
-          <Image source={require('../../../src/assets/images/banner1.png')} style={{width: 500, height: 220, marginLeft: 73,}}/>
+          <Image source={require('../../assets/images/banner1.png')} style={{width: 500, height: 220, marginLeft: 40,}}/>
         </View>
 
         <View key="2" style={styles.page}>
-          <Image source={require('../../../src/assets/images/banner2.png')} style={{width: 500, height: 220}}/>
+          <Image source={require('../../../src/assets/images/banner2.png')} style={{width: 400, height: 220}}/>
         </View>
 
         <View key="3" style={styles.page}>
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     page: {
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#ADD8E6",
+        backgroundColor: "#fff",
         padding: 10,
     },
     bullteContent:{

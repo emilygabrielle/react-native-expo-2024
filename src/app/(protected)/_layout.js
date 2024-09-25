@@ -10,13 +10,11 @@ function CustomDrawerContent(props) {
 
   return (
     <View style={{ flex: 1}}>
-      <View style={{marginTop: 20, justifyContent:"center", alignItems: "center", backgroundColor: "lightblue",paddingVertical: 10 }}>
-        <Image  
-        source={{
-          uri: 'https://static.vecteezy.com/ti/vetor-gratis/p1/5310488-cartoon-girl-desenho-ilustracao-clipart-bonito-gratis-vetor.jpg',}}
-          style={{  width: 100,
-            height: 100, borderRadius: 50, marginTop: 10}}
-        />
+      <View style={{marginTop: 20, justifyContent:"center", alignItems: "center", backgroundColor: "#e6b372" }}>
+
+      <Image source={require('../../../src/assets/images/usuario.png')} style={{width: 110,
+            height: 110, borderRadius: 55, marginTop: 20,}}/>
+
         <Text style={{textAlign: "center", fontSize: 16, fontFamily: "regular",}}>
           {user?.user?.nome}</Text>
       </View>
@@ -25,7 +23,7 @@ function CustomDrawerContent(props) {
      </DrawerContentScrollView>
      <TouchableOpacity onPress={()=>signOut()}
      style={{justifyContent: "center", alignItems: "center", 
-     height: 50, margin: 10, backgroundColor: "lightblue", borderRadius: 5, }}>
+     height: 50, margin: 10, backgroundColor: "#e6b372", borderRadius: 5, }}>
       <Text style={{color: "white", fontFamily: "bold",}}>Deslogar</Text>
      </TouchableOpacity>
 
@@ -41,7 +39,7 @@ const DrawerLayout = () => {
             <Drawer.Screen 
             name="index" 
             options={{drawerLabel: "Principal", headerTitle:"Principal", 
-              drawerIcon: ()=> <Ionicons name="home-outline" size={20} color="black"/> }} />
+              drawerIcon: ()=> <Ionicons name="home-outline" size={20} color="black" /> }} />
             
             <Drawer.Screen 
             name="list" 
