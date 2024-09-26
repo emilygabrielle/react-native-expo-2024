@@ -176,6 +176,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center', 
         alignItems: 'center',
         padding: 10,
+        background:'rgb(2,5,36)',
     },
     inputView: {
         borderColor: "black",

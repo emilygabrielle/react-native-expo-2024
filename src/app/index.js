@@ -31,7 +31,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Image source={require('../../src/assets/images/logo.png')} style={{width: 270, height: 220}}/>
-      <Text style={styles.title}>Versos Vivos</Text>
+      <Text style={styles.title}>Login</Text>
       <View style={styles.inputbox}>
         <Ionicons name="mail-open-outline" size={20} color="black" />
         <TextInput 
@@ -58,7 +58,7 @@ export default function App() {
       </View>
 
       <Button 
-      style={styles.button}
+      style={styles.Button}
       title="Entrar" 
       onPress={handleEntrarSuper}
       color="#e6b372" 
@@ -87,8 +87,9 @@ const styles = StyleSheet.create({
     gap: 15,
   },
   title: {
-    fontFamily: "regular",
+    fontFamily: "bold",
     fontSize: 25,
+    color: "#e6b372",
   },
   inputbox: {
     flexDirection: "row",
@@ -106,9 +107,10 @@ const styles = StyleSheet.create({
     fontFamily: "light",
     fontSize: 20,
   },
-  button:{
+  Button:{
     width: "100%",
     height: 40,
+    fontFamily: "bold",
 
   }
 });

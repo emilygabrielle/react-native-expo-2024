@@ -44,7 +44,4 @@ const styles = StyleSheet.create({
         textAlign: "justify",
         lineHeight: 25,
     },
-    Button:{
-        width: 30,
-    }
 })
