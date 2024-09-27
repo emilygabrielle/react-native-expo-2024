@@ -39,15 +39,39 @@ const DrawerLayout = () => {
             <Drawer.Screen 
             name="index" 
             options={{drawerLabel: "Principal", headerTitle:"Principal", 
-              drawerIcon: ()=> <Ionicons name="home-outline" size={20} color="black" /> }} />
+              drawerIcon: ()=> <Ionicons name="home" size={20} color="black" /> }} />
             
             <Drawer.Screen 
+            name="humor" 
+            options={{drawerLabel: "Poemas de Humor", 
+            headerTitle:"Poemas de Humor",  
+            drawerIcon: ()=> <Ionicons name="happy" size={20} color="black"/>}} />
+
+             <Drawer.Screen 
+            name="romance" 
+            options={{drawerLabel: "Poemas de Romance", 
+            headerTitle:"Poemas de Romance",  
+            drawerIcon: ()=> <Ionicons name="flower-outline" size={20} color="black"/>}} />
+            
+            <Drawer.Screen 
+            name="favoritos" 
+            options={{drawerLabel: "Favoritos", 
+            headerTitle:"Favoritos",  
+            drawerIcon: ()=> <Ionicons name="heart" size={20} color="red"/>}} />
+
+           <Drawer.Screen 
+            name="meus" 
+            options={{drawerLabel: "Meus Poemas", 
+            headerTitle:"Meus Poemas",  
+            drawerIcon: ()=> <Ionicons name="pencil" size={20} color="black"/>}} />
+
+           <Drawer.Screen 
             name="list" 
             options={{drawerLabel: "Listagem", headerTitle:"Listagem",  
-              drawerIcon: ()=> <Ionicons name="list-outline" size={20} color="black"/> 
+              drawerIcon: ()=> <Ionicons name="list" size={20} color="black"/> 
             }} />
-            
-            <Drawer.Screen 
+
+           <Drawer.Screen 
             name="payment" 
             options={{drawerLabel: "Pagamentos", 
             headerTitle:"Pagamentos",  
