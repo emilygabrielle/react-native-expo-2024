@@ -1,6 +1,6 @@
 import { router } from "expo-router";
-import { useState } from "react";
-import { Button, StyleSheet, Text, TextInput, View } from "react-native";
+import { useEffect, useRef, useState } from "react";
+import { Button, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, View } from "react-native";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import {Picker} from '@react-native-picker/picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
@@ -118,18 +118,46 @@ export default function Payment() {
       const [data, setData] = useState(new Date());
       const [viewCalendar, setViewCalendar] = useState(false);
       const [observacao, setObservacao] = useState("");
+      const valueRef = useRef();
 
       const handleCalendar = (event, selectedDate)=>
         {setViewCalendar(false);
           setData(selectedDate)
         };
 
+        useEffect(() => {
+          valueRef?.current?.focus();
+        },[])
+
+        const handleChangeValor = (value) => {
+          try {
+             let valorLimpo = value.replace(",", "").replace(".", "");
+          let valorConvertido = Number(valorLimpo) / 100;
+          if(valorConvertido === 0 || isNaN(valorConvertido)){
+            setValor("0,00");
+            return;
+          }
+          let valorPtBR = Intl.NumberFormat("pt-BR", 
+            {style: "decimal", minimumFractionDigits: 2
+
+            }).format(valorConvertido);
+            setValor(valorPtBR);
+          } catch (error) {
+            setValor("0,00");
+          }
+         
+        };
+
     return (
+      <KeyboardAvoidingView style={{flex: 1}} behavior={Platform.OS === "ios" ? "padding" : "height"}>
         <View style={styles.content}>
           <Text>Inserir Pagamento</Text>
             <View style={styles.inputView}>
                 <Ionicons name="cash-outline" size={24} color="black" />
-                <TextInput placeholder="Valor" keyboardType="decimal-pad" style={styles.inputValor} value={valor} onChangeText={setValor}/>
+                <TextInput placeholder="Valor" keyboardType="decimal-pad" 
+                style={styles.inputValor} value={valor} onChangeText={(newValue)=>handleChangeValor(newValue)}
+                ref={valueRef}
+                />
             </View>
             <View style={styles.inputView}>
                 <Picker selectedValue={id} onValueChange={(itemValue, index)=>{setId(itemValue)}}
@@ -165,6 +193,7 @@ export default function Payment() {
                 <Button title="Cancelar" onPress={() => router.back()} color="#e6b372" />
             </View>
         </View>
+        </KeyboardAvoidingView>
     );
 }
 
