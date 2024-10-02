@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
     borderColor: "#999",
     borderRadius: 10,
     height: 45,
+    padding: 10,
   },
   emailinput: {
     flex: 1,

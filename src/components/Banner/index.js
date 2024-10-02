@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { useEffect, useState } from "react";
+import { Image, StyleSheet, Text, View } from "react-native";
 import PagerView from "react-native-pager-view";
 
 export function Banner() {
@@ -7,10 +7,24 @@ export function Banner() {
 
     const onPageSelected = (e) => {
         setPage(e.nativeEvent.position);
-    }
+    };
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const nextPage = (page + 1) %3;
+            setPage(nextPage);
+            if (pagerRef){
+                pagerRef.setPage(nextPage);
+            }
+        }, 3000);
+
+        return () => clearInterval(interval);
+    }, [page]);
+
   return (
   <View style={styles.container}>
-    <PagerView initialPage={0} style={styles.content} onPageSelected={onPageSelected}>
+    <PagerView initialPage={0} style={styles.content} onPageSelected={onPageSelected}
+    ref={(ref) => {pagerRef = ref;}}>
         <View key="1" style={styles.page}>
           <Image source={require('../../assets/images/banner1.png')} style={{width: 500, height: 220, marginLeft: 40,}}/>
         </View>
@@ -27,6 +41,10 @@ export function Banner() {
         <View style={[styles.bullte, page === 0 && styles.activeBullte]}></View>
         <View style={[styles.bullte, page === 1 && styles.activeBullte]}></View>
         <View style={[styles.bullte, page === 2 && styles.activeBullte]}></View>
+    </View>
+    
+    <View>
+        <Text style={styles.text}>Algo</Text>
     </View>
     
   </View>
@@ -65,9 +83,13 @@ const styles = StyleSheet.create({
      activeBullte:{
         backgroundColor: "#000",
      },
-     text:{
-         fontSize: 15,
-         fontFamily: "bold",
-     }
+     text: {
+        fontSize: 15,
+        fontFamily: "bold",
+        backgroundColor: "blue", 
+        textAlign: "center",
+        marginTop: 10, 
+        width: "60%",
+    }
      
 });

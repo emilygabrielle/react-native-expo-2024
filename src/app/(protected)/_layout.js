@@ -51,7 +51,7 @@ const DrawerLayout = () => {
             name="romance" 
             options={{drawerLabel: "Poemas de Romance", 
             headerTitle:"Poemas de Romance",  
-            drawerIcon: ()=> <Ionicons name="flower-outline" size={20} color="black"/>}} />
+            drawerIcon: ()=> <Ionicons name="heart" size={20} color="black"/>}} />
             
             <Drawer.Screen 
             name="favoritos" 
@@ -75,7 +75,7 @@ const DrawerLayout = () => {
             name="payment" 
             options={{drawerLabel: "Pagamentos", 
             headerTitle:"Pagamentos",  
-            drawerIcon: ()=> <Ionicons name="code-download-sharp" size={20} color="black"/>}} />
+            drawerIcon: ()=> <Ionicons name="cash-outline" size={20} color="black"/>}} />
           </Drawer>
         </GestureHandlerRootView>
       );
