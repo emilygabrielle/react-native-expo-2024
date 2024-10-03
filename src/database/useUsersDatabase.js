@@ -4,7 +4,7 @@ export function useUsersDatabase() {
     const database = useSQLiteContext();
 
     async function authUser({ email, password }) {
-       // console.log("authUser email: ", email, " - password: ", password);
+        // console.log("authUser email: ", email, " - password: ", password);
         try {
             const result = await database.getFirstAsync(`
                 SELECT id, nome, email, role FROM users WHERE email='${email}' and senha='${password}'
@@ -16,21 +16,39 @@ export function useUsersDatabase() {
         }
     }
 
-    async function create() {
+    async function createUser({
+        user_id,
+        user_cadastro,
+        valor_pago,
+        data_pagamento,
+        observacao,
+    }) {
         const statment = await database.prepareAsync(`
             INSERT INTO payments (user_id, user_cadastro, valor_pago, data_pagamento, observacao) 
-            VALUE ($user_id, $user_cadastro, $valor_pago, @data_pagamento, $observacao);
-            `)
-        try {
-            
-        } catch (error) {
-            
-        }finally{
+            VALUES ($user_id, $user_cadastro, $valor_pago, $data_pagamento, $observacao);
+            `);
 
+        try {
+            const result = await statment.executeAsync({
+                $user_id: user_id,
+                $user_cadastro: user_cadastro,
+                $valor_pago: valor_pago,
+                $data_pagamento: data_pagamento,
+                $observacao: observacao
+            });
+
+            const insertedID = result.lastInsertRowId.toString();
+            return { insertedID };
+
+        } catch (error) {
+            console.log(error)
+            throw error
+        } finally {
+            await statment.finalizeAsync();
         }
     }
 
     return {
-        authUser,
+        authUser, createUser
     };
 }
