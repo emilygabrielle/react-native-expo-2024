@@ -2,7 +2,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Drawer } from 'expo-router/drawer';
 import { Ionicons } from "@expo/vector-icons";
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
-import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useAuth } from '../../hooks/Auth/index';
 
 function CustomDrawerContent(props) {
@@ -22,8 +22,7 @@ function CustomDrawerContent(props) {
       <DrawerItemList {...props} />
      </DrawerContentScrollView>
      <TouchableOpacity onPress={()=>signOut()}
-     style={{justifyContent: "center", alignItems: "center", 
-     height: 50, margin: 10, backgroundColor: "#e6b372", borderRadius: 5, }}>
+     style={styles.button}>
       <Text style={{color: "white", fontFamily: "bold",}}>Deslogar</Text>
      </TouchableOpacity>
 
@@ -84,3 +83,17 @@ const DrawerLayout = () => {
 export default function Layout() {
   return DrawerLayout();
 }
+
+const styles = StyleSheet.create({
+  button: {
+    backgroundColor: "#333",
+    padding: 10,
+    borderRadius: 5,
+    marginTop: 20,
+    justifyContent: "center",
+    alignItems: "center",
+    width: 250,
+    marginBottom: 40,
+    marginLeft: 13,
+  },
+})

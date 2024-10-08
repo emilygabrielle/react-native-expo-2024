@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Alert, BackHandler, Button, Image, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Alert, BackHandler, Button, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useAuth } from '../hooks/Auth';
 import { router } from 'expo-router';
 import { Ionicons } from "@expo/vector-icons";
@@ -57,22 +57,24 @@ export default function App() {
        onPress={tooglePasswordVisibility}/>
       </View>
 
-      <Button 
-      style={styles.Button}
+      <TouchableOpacity style={styles.button}
       title="Entrar" 
-      onPress={handleEntrarSuper}
-      color="#e6b372" 
-      />
-      <Button 
-      title="Sobre" 
-      onPress={() => router.push("/about")} 
-      color="#e6b372" 
-      />
-      <Button
-       title="Sair do Aplicativo" 
-       onPress={() => BackHandler.exitApp()}
-       color="#e6b372"  
-       />
+      onPress={handleEntrarSuper}>
+        <Text>Entrar</Text>
+      </TouchableOpacity>
+     
+    
+      <TouchableOpacity    title="Sobre" 
+      onPress={() => router.push("/about")} style={styles.button} >
+        <Text>Sobre</Text>
+      </TouchableOpacity>
+   
+      <TouchableOpacity title="Sair do Aplicativo" 
+       onPress={() => BackHandler.exitApp()} style={styles.sair}>
+        <Text>Sair do Aplicativo</Text>
+      </TouchableOpacity>
+       
+
       <StatusBar style="auto" />
     </View>
   );
@@ -108,10 +110,32 @@ const styles = StyleSheet.create({
     fontFamily: "light",
     fontSize: 20,
   },
-  Button:{
-    width: "100%",
-    height: 40,
-    fontFamily: "bold",
-
-  }
+  button: {
+  width: 100,
+  height: 40,
+  fontFamily: "bold",
+  backgroundColor: "#e6b372",
+  alignItems: "center",
+  padding: 10,
+  marginBottom: 20,
+  shadowColor: "#000",
+  shadowOffset: { width: 0, height: 2 },
+  shadowOpacity: 0.25,
+  shadowRadius: 3.84,
+  elevation: 5,
+},
+sair:{
+  width: 200,
+  height: 40,
+  fontFamily: "bold",
+  backgroundColor: "#e6b372",
+  alignItems: "center",
+  padding: 10,
+  marginBottom: 20,
+  shadowColor: "#000",
+  shadowOffset: { width: 0, height: 2 },
+  shadowOpacity: 0.25,
+  shadowRadius: 3.84,
+  elevation: 5,
+}
 });

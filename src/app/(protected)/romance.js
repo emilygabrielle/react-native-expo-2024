@@ -17,7 +17,7 @@ export default function List() {
 
     async function loadAudio() {
         const { sound } = await Audio.Sound.createAsync(
-            require("../../assets/audio/musica.mp4")
+            require("../../assets/audio/itwillrain.mp3")
         );
         setSound(sound);
     }
