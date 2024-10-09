@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, Button, ScrollView, StyleSheet } from 'react-native';
+import { Text, View, Button, ScrollView, StyleSheet, TouchableOpacity,} from 'react-native';
 import { Audio } from 'expo-av';
 
 export default function List() {
@@ -91,7 +91,6 @@ export default function List() {
 
 
     return (
-
         <View style={styles.container}>
             <Text>It Will Rain</Text>           
             <ScrollView style={styles.text}>
@@ -99,7 +98,10 @@ export default function List() {
                     <Text key={index} style={styles.lyricLine}>{line}</Text>
                 ))}
             </ScrollView>
-            <Button title={isPlaying ? "Pausar" : "Reproduzir"} onPress={playPauseAudio} color= "black"/>
+            <TouchableOpacity  onPress={playPauseAudio} style={styles.button}>
+                <Text title={isPlaying ? "Pausar" : "Reproduzir"}><Ionicons name="home" size={20} color="black" /></Text>
+            </TouchableOpacity>
+            
         </View>
     );
 }
@@ -108,17 +110,24 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-start',
         alignItems: 'center',
-        marginTop: 20,
+        backgroundColor: "white",
+       
     },
     text:{
         flex: 1,
-        maxHeight: 400,
+        maxHeight: 600,
         width: 300,
         borderWidth: 1,
         borderRadius: 10,
         marginVertical: 2,
-        padding: 10,
-        backgroundColor: 'white',
+        padding: 15,
+        backgroundColor: "brown",
+        fontFamily: "bold",
     },
-    
+    lyricLine:{
+        color: "white",
+    },
+    button:{
+        backgroundColor: "black",
+    }
 })

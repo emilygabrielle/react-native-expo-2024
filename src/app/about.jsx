@@ -15,7 +15,7 @@ export default function About () {
             obras por tema, autor ou estilo, tudo para inspirar sua própria escrita.</Text>
             <Text style={styles.texto}>Se você se sentir inspirado, pode usar nossa ferramenta de criação para dar vida aos seus próprios poemas. Com 
             sugestões de temas ao seu dispor, escrever se torna uma experiência prazerosa e descomplicada.</Text>
-            <Button title="Voltar" onPress={() => {router.replace("/")}} color="#e6b372"  />
+            <Button title="Voltar" onPress={() => {router.back()}} color="#e6b372"  />
         </View>
     );
 }

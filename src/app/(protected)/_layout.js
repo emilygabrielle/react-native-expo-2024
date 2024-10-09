@@ -47,9 +47,9 @@ const DrawerLayout = () => {
             drawerIcon: ()=> <Ionicons name="happy" size={20} color="black"/>}} />
 
              <Drawer.Screen 
-            name="romance" 
-            options={{drawerLabel: "Poemas de Romance", 
-            headerTitle:"Poemas de Romance",  
+            name="itwillrain" 
+            options={{drawerLabel: "It Will Rain", 
+            headerTitle:"It Will Rain",  
             drawerIcon: ()=> <Ionicons name="heart" size={20} color="black"/>}} />
             
             <Drawer.Screen 

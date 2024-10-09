@@ -20,7 +20,6 @@ export default function App() {
   const handleEntrarSuper = async () => {
     try {
       await signIn({ email, password});
-      router.replace("/");
     } catch (error) {
       Alert.alert("Erro", error.message);
       console.log(error);
@@ -65,7 +64,7 @@ export default function App() {
      
     
       <TouchableOpacity    title="Sobre" 
-      onPress={() => router.push("/about")} style={styles.button} >
+      onPress={() => router.push("about")} style={styles.button} >
         <Text>Sobre</Text>
       </TouchableOpacity>
    
