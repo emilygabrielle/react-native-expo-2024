@@ -12,8 +12,8 @@ function CustomDrawerContent(props) {
     <View style={{ flex: 1}}>
       <View style={{marginTop: 20, justifyContent:"center", alignItems: "center", backgroundColor: "#e6b372" }}>
 
-      <Image source={require('../../../src/assets/images/usuario.png')} style={{width: 110,
-            height: 110, borderRadius: 55, marginTop: 20,}}/>
+      <Image source={require('../../../src/assets/images/usuario.png')} style={{width: 132,
+            height: 132, borderRadius: 55, marginTop: 10,}}/>
 
         <Text style={{textAlign: "center", fontSize: 16, fontFamily: "regular",}}>
           {user?.user?.nome}</Text>
@@ -41,10 +41,34 @@ const DrawerLayout = () => {
               drawerIcon: ()=> <Ionicons name="home" size={20} color="black" /> }} />
             
             <Drawer.Screen 
-            name="humor" 
-            options={{drawerLabel: "Poemas de Humor", 
-            headerTitle:"Poemas de Humor",  
+            name="biografia" 
+            options={{drawerLabel: "Biografia", 
+            headerTitle:"Biografia",  
             drawerIcon: ()=> <Ionicons name="happy" size={20} color="black"/>}} />
+              
+            <Drawer.Screen 
+            name="album1" 
+            options={{drawerLabel: "Álbum 1", 
+            headerTitle:"Álbum 1",  
+            drawerIcon: ()=> <Ionicons name="disc" size={20} color="black"/>}} />
+
+            <Drawer.Screen 
+            name="album2" 
+            options={{drawerLabel: "Álbum 2", 
+            headerTitle:"Álbum 2",  
+            drawerIcon: ()=> <Ionicons name="disc" size={20} color="black"/>}} />
+
+           <Drawer.Screen 
+            name="album3" 
+            options={{drawerLabel: "Álbum 3", 
+            headerTitle:"Álbum 3",  
+            drawerIcon: ()=> <Ionicons name="disc" size={20} color="black"/>}} />
+
+           <Drawer.Screen 
+            name="album4" 
+            options={{drawerLabel: "Álbum 4", 
+            headerTitle:"Álbum 4",  
+            drawerIcon: ()=> <Ionicons name="disc" size={20} color="black"/>}} />
 
              <Drawer.Screen 
             name="itwillrain" 
@@ -58,12 +82,7 @@ const DrawerLayout = () => {
             headerTitle:"Favoritos",  
             drawerIcon: ()=> <Ionicons name="heart" size={20} color="red"/>}} />
 
-           <Drawer.Screen 
-            name="meus" 
-            options={{drawerLabel: "Meus Poemas", 
-            headerTitle:"Meus Poemas",  
-            drawerIcon: ()=> <Ionicons name="pencil" size={20} color="black"/>}} />
-
+         
            <Drawer.Screen 
             name="list" 
             options={{drawerLabel: "Listagem", headerTitle:"Listagem",  

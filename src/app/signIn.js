@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Alert, BackHandler, Button, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, BackHandler, Button, Image, ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useAuth } from '../hooks/Auth';
 import { router } from 'expo-router';
 import { Ionicons } from "@expo/vector-icons";
@@ -28,6 +28,7 @@ export default function App() {
   }
 
   return (
+    <ImageBackground source={require('../assets/images/fundo.png')} style={styles.backgroundImage}>
     <View style={styles.container}>
       <Image source={require('../../src/assets/images/logo.png')} style={{width: 270, height: 220}}/>
       <Text style={styles.title}>Login</Text>
@@ -76,21 +77,22 @@ export default function App() {
 
       <StatusBar style="auto" />
     </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
     gap: 15,
+    
   },
   title: {
     fontFamily: "bold",
     fontSize: 25,
-    color: "#e6b372",
+    color: "white",
   },
   inputbox: {
     flexDirection: "row",
@@ -103,6 +105,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     height: 45,
     padding: 10,
+    backgroundColor: "white",
   },
   emailinput: {
     flex: 1,
@@ -113,7 +116,7 @@ const styles = StyleSheet.create({
   width: 100,
   height: 40,
   fontFamily: "bold",
-  backgroundColor: "#e6b372",
+  backgroundColor: "white",
   alignItems: "center",
   padding: 10,
   marginBottom: 20,
@@ -136,5 +139,9 @@ sair:{
   shadowOpacity: 0.25,
   shadowRadius: 3.84,
   elevation: 5,
-}
+},
+backgroundImage: {
+  flex: 1,
+  resizeMode: 'cover',
+},
 });

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, Button, ScrollView, StyleSheet, TouchableOpacity,} from 'react-native';
+import { Text, View, Button, ScrollView, StyleSheet, TouchableOpacity, TextInput,} from 'react-native';
 import { Audio } from 'expo-av';
 
 export default function List() {
@@ -91,6 +91,7 @@ export default function List() {
 
 
     return (
+        
         <View style={styles.container}>
             <Text>It Will Rain</Text>           
             <ScrollView style={styles.text}>
@@ -98,10 +99,8 @@ export default function List() {
                     <Text key={index} style={styles.lyricLine}>{line}</Text>
                 ))}
             </ScrollView>
-            <TouchableOpacity  onPress={playPauseAudio} style={styles.button}>
-                <Text title={isPlaying ? "Pausar" : "Reproduzir"}><Ionicons name="home" size={20} color="black" /></Text>
-            </TouchableOpacity>
-            
+            <Button  onPress={playPauseAudio} style={styles.button} title={isPlaying ? "Pausar" : "Reproduzir"}/>
+            <Button title="Voltar" color="#e6b372"  />
         </View>
     );
 }
@@ -126,8 +125,5 @@ const styles = StyleSheet.create({
     },
     lyricLine:{
         color: "white",
-    },
-    button:{
-        backgroundColor: "black",
     }
 })
