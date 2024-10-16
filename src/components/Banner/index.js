@@ -26,7 +26,7 @@ export function Banner() {
     <PagerView initialPage={0} style={styles.content} onPageSelected={onPageSelected}
     ref={(ref) => {pagerRef = ref;}}>
         <View key="1" style={styles.page}>
-          <Image source={require('../../assets/images/banner1.png')} style={{width: 500, height: 220}}/>
+          <Image source={require('../../assets/images/banner1.png')} style={{width: 400, height: 220}}/>
         </View>
 
         <View key="2" style={styles.page}>

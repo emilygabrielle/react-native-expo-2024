@@ -30,7 +30,6 @@ export default function App() {
   return (
     <ImageBackground source={require('../assets/images/fundo.png')} style={styles.backgroundImage}>
     <View style={styles.container}>
-      <Image source={require('../../src/assets/images/logo.png')} style={{width: 270, height: 220}}/>
       <Text style={styles.title}>Login</Text>
       <View style={styles.inputbox}>
         <Ionicons name="mail-open-outline" size={20} color="black" />
@@ -87,12 +86,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 15,
-    
+    marginTop: 310,
   },
   title: {
     fontFamily: "bold",
     fontSize: 25,
-    color: "white",
+    color: "black",
   },
   inputbox: {
     flexDirection: "row",
@@ -113,7 +112,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   button: {
-  width: 100,
+  width: 200,
   height: 40,
   fontFamily: "bold",
   backgroundColor: "white",
@@ -130,7 +129,7 @@ sair:{
   width: 200,
   height: 40,
   fontFamily: "bold",
-  backgroundColor: "#e6b372",
+  backgroundColor: "white",
   alignItems: "center",
   padding: 10,
   marginBottom: 20,
