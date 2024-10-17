@@ -1,47 +1,47 @@
 import { router } from "expo-router";
 import { Button, ScrollView, StyleSheet, Text, View } from "react-native";
 
-export default function About () {
+export default function About() {
     return (
-        <View style={styles.container}> 
-        <Text style={styles.titulo}>Versos Vivos📜</Text>
-        <Text style={styles.sub}>O App que faz a Poesia ganhar Vida!</Text>
+        <ScrollView contentContainerStyle={styles.container}>
+            <Text style={styles.titulo}>Versos Vivos📜</Text>
+            <Text style={styles.sub}>"Bruno Mars Music: Cante, Conecte e Explore a Música!"</Text>
             <Text style={styles.texto}>
-            Olá! É um prazer te apresentar o Versos Vivos, o aplicativo ideal para todos que têm uma paixão 
-            pela poesia. Aqui, você encontrará um espaço para explorar, criar e compartilhar versos com pessoas 
-            que, assim como você, amam a arte das palavras.</Text>
-            <Text style={styles.texto}>No Versos Vivos, você pode navegar por uma extensa coleção de poemas, que inclui tanto clássicos 
-            atemporais quanto novas vozes da literatura. A busca é fácil e intuitiva, permitindo que você encontre 
-            obras por tema, autor ou estilo, tudo para inspirar sua própria escrita.</Text>
-            <Text style={styles.texto}>Se você se sentir inspirado, pode usar nossa ferramenta de criação para dar vida aos seus próprios poemas. Com 
-            sugestões de temas ao seu dispor, escrever se torna uma experiência prazerosa e descomplicada.</Text>
-            <Button title="Voltar" onPress={() => {router.back()}} color="#e6b372"  />
-        </View>
+                Apresentamos o Bruno Mars Music, um aplicativo exclusivo para os fãs que desejam curtir as músicas de Bruno Mars enquanto acompanham as letras de cada canção.
+                Com um design simples e eficiente, o aplicativo é ideal para quem ama cantar junto ou explorar os versos de seus hits favoritos.
+            </Text>
+            <Text style={styles.texto}>Funcionalidades principais:</Text>
+            <Text style={styles.texto}>• Catálogo Completo de Letras: O aplicativo contém todas as letras das músicas de Bruno Mars, desde seus primeiros álbuns até os lançamentos mais recentes.</Text>
+            <Text style={styles.texto}>• Biografia e Discografia: Além das letras, o aplicativo oferece uma breve biografia do artista e uma lista de todos os seus álbuns, com detalhes sobre os singles lançados.</Text>
+            <Text style={styles.texto}>• Análises e Interpretações: O app também oferece análises das letras, ajudando os usuários a entender melhor as mensagens e temas abordados nas músicas.</Text>
+            <Text style={styles.texto}>• Playlist Personalizadas: Os usuários podem criar playlists de suas músicas favoritas diretamente no app, facilitando a experiência de ouvir e cantar.</Text>
+            <Button title="Voltar" onPress={() => { router.back() }} color="#e6b372" />
+        </ScrollView>
     );
 }
-const styles = StyleSheet.create({
 
-    container:{
-        flex: 1,
+const styles = StyleSheet.create({
+    container: {
+        flexGrow: 1,
         padding: 20,
+        marginTop: 100,
     },
-    titulo:{
+    titulo: {
         fontSize: 20,
         fontWeight: "bold",
         marginTop: 20,
         marginBottom: 10,
         textAlign: "center",
     },
-    sub:{
+    sub: {
         fontSize: 16,
-        marginBottom: 10,
+        fontStyle: "italic",
+        marginBottom: 20,
         textAlign: "center",
     },
-    texto:{
-        fontSize: 16,
-        marginBottom: 20,
-        marginTop: 10,
+    texto: {
+        fontSize: 14,
+        marginBottom: 10,
         textAlign: "justify",
-        lineHeight: 25,
     },
-})
+});

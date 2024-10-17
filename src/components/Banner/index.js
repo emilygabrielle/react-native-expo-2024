@@ -11,7 +11,7 @@ export function Banner() {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            const nextPage = (page + 1) %5;
+            const nextPage = (page + 1) %3;
             setPage(nextPage);
             if (pagerRef){
                 pagerRef.setPage(nextPage);
@@ -26,28 +26,20 @@ export function Banner() {
     <PagerView initialPage={0} style={styles.content} onPageSelected={onPageSelected}
     ref={(ref) => {pagerRef = ref;}}>
         <View key="1" style={styles.page}>
-          <Image source={require('../../assets/images/banner1.png')} style={{width: 400, height: 220}}/>
+          <Image source={require('../../assets/images/banner1.png')} style={{width: 300, height: 220}}/>
         </View>
 
         <View key="2" style={styles.page}>
-          <Image source={require('../../assets/images/banner2.png')} style={{width: 400, height: 220}}/>
+          <Image source={require('../../assets/images/banner2.png')} style={{width: 300, height: 220}}/>
         </View>
         <View key="3" style={styles.page}>
-        <Image source={require('../../../src/assets/images/banner3.png')} style={{width: 400, height: 220}}/>
-        </View>
-        <View key="4" style={styles.page}>
-        <Image source={require('../../../src/assets/images/banner4.png')} style={{width: 400, height: 220,}}/>
-        </View>
-        <View key="5" style={styles.page}>
-        <Image source={require('../../../src/assets/images/banner5.png')} style={{width: 400, height: 220}}/>
+        <Image source={require('../../assets/images/banner3.png')} style={{width: 400, height: 220}}/>
         </View>
     </PagerView>
     <View style={styles.bullteContent}> 
         <View style={[styles.bullte, page === 0 && styles.activeBullte]}></View>
         <View style={[styles.bullte, page === 1 && styles.activeBullte]}></View>
         <View style={[styles.bullte, page === 2 && styles.activeBullte]}></View>
-        <View style={[styles.bullte, page === 3 && styles.activeBullte]}></View>
-        <View style={[styles.bullte, page === 4 && styles.activeBullte]}></View>
     </View>
     
   </View>

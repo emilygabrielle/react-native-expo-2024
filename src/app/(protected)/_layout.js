@@ -39,13 +39,7 @@ const DrawerLayout = () => {
             name="index" 
             options={{drawerLabel: "Principal", headerTitle:"Principal", 
               drawerIcon: ()=> <Ionicons name="home" size={20} color="black" /> }} />
-            
-            <Drawer.Screen 
-            name="biografia" 
-            options={{drawerLabel: "Biografia", 
-            headerTitle:"Biografia",  
-            drawerIcon: ()=> <Ionicons name="happy" size={20} color="black"/>}} />
-              
+                          
             <Drawer.Screen 
             name="album1" 
             options={{drawerLabel: "Álbum 1", 
