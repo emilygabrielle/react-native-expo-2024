@@ -1,16 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { Text, View, Button, ScrollView, StyleSheet, TouchableOpacity, TextInput,} from 'react-native';
+import React, { useState, useEffect, useRef } from 'react';
+import { Text, View, Button, ScrollView, StyleSheet, TouchableOpacity, Animated } from 'react-native';
 import { Audio } from 'expo-av';
 
 export default function List() {
     const [sound, setSound] = useState();
     const [isPlaying, setIsPlaying] = useState(false);
+    const [showLyrics, setShowLyrics] = useState(false); // Estado para mostrar/esconder letras
 
     async function playPauseAudio() {
         if (isPlaying) {
             await sound.pauseAsync();
+
         } else {
             await sound.playAsync();
+
         }
         setIsPlaying(!isPlaying);
     }
@@ -30,6 +33,7 @@ export default function List() {
             }
         };
     }, []);
+
     const lyrics = [
         "If you ever leave me, baby",
         "Leave some morphine at my door",
@@ -69,7 +73,7 @@ export default function List() {
         "There'll be no clear skies",
         "If I lose you, baby",
         "",
-        "Just like the clouds, my eyes will do the same",
+        "And just like the clouds, my eyes will do the same",
         "If you walk away, everyday it'll rain, rain, rain",
         "",
         "Oh, don't you say (don't you say)",
@@ -89,30 +93,41 @@ export default function List() {
         "If you walk away, everyday it'll rain, rain, rain"
     ];
 
-
     return (
-        
         <View style={styles.container}>
-            <Text>It Will Rain</Text>           
-            <ScrollView style={styles.text}>
-                {lyrics.map((line, index) => (
-                    <Text key={index} style={styles.lyricLine}>{line}</Text>
-                ))}
-            </ScrollView>
-            <Button  onPress={playPauseAudio} style={styles.button} title={isPlaying ? "Pausar" : "Reproduzir"}/>
-            <Button title="Voltar" color="#e6b372"  />
+            <Text>It Will Rain</Text>
+
+            {/* Botão para mostrar ou esconder as letras */}
+            <TouchableOpacity onPress={() => setShowLyrics(!showLyrics)} style={styles.button}>
+                <Text style={styles.buttonText}>{showLyrics ? "Esconder Letra" : "Mostrar Letra"}</Text>
+            </TouchableOpacity>
+
+            {/* Mostrar as letras se o estado showLyrics for verdadeiro */}
+            {showLyrics && (
+                <ScrollView style={styles.text}>
+                    {lyrics.map((line, index) => (
+                        <Text key={index} style={styles.lyricLine}>{line}</Text>
+                    ))}
+                </ScrollView>
+            )}
+
+          
+                <Button onPress={playPauseAudio} title={isPlaying ? "Pausar" : "Reproduzir"} />
+
+
+            <Button title="Voltar" color="#e6b372" />
         </View>
     );
 }
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'flex-start',
         alignItems: 'center',
         backgroundColor: "white",
-       
     },
-    text:{
+    text: {
         flex: 1,
         maxHeight: 600,
         width: 300,
@@ -121,9 +136,18 @@ const styles = StyleSheet.create({
         marginVertical: 2,
         padding: 15,
         backgroundColor: "brown",
-        fontFamily: "bold",
     },
-    lyricLine:{
+    lyricLine: {
         color: "white",
-    }
-})
+    },
+    button: {
+        backgroundColor: "#e6b372",
+        padding: 10,
+        borderRadius: 5,
+        marginVertical: 10,
+    },
+    buttonText: {
+        color: "white",
+        fontWeight: "bold",
+    },
+});
