@@ -10,7 +10,7 @@ function CustomDrawerContent(props) {
 
   return (
     <View style={{ flex: 1}}>
-      <View style={{marginTop: 20, justifyContent:"center", alignItems: "center", backgroundColor: "#e6b372" }}>
+      <View style={{marginTop: 20, justifyContent:"center", alignItems: "center", backgroundColor: "	#B22222" }}>
 
       <Image source={require('../../../src/assets/images/usuario.png')} style={{width: 132,
             height: 132, borderRadius: 55, marginTop: 10,}}/>

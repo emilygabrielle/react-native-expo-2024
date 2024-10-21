@@ -1,38 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Text, View, Button, ScrollView, StyleSheet, TouchableOpacity, Animated } from 'react-native';
+import { Text, View, Button, ScrollView, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { Ionicons } from "@expo/vector-icons";
 import { Audio } from 'expo-av';
+import Slider from '@react-native-community/slider';
 
 export default function List() {
     const [sound, setSound] = useState();
     const [isPlaying, setIsPlaying] = useState(false);
-    const [showLyrics, setShowLyrics] = useState(false); // Estado para mostrar/esconder letras
-
-    async function playPauseAudio() {
-        if (isPlaying) {
-            await sound.pauseAsync();
-
-        } else {
-            await sound.playAsync();
-
-        }
-        setIsPlaying(!isPlaying);
-    }
-
-    async function loadAudio() {
-        const { sound } = await Audio.Sound.createAsync(
-            require("../../assets/audio/itwillrain.mp3")
-        );
-        setSound(sound);
-    }
-
-    useEffect(() => {
-        loadAudio();
-        return () => {
-            if (sound) {
-                sound.unloadAsync();
-            }
-        };
-    }, []);
+    const [progress, setProgress] = useState(0);
+    const [duration, setDuration] = useState(0);
+    const isMounted = useRef(true);
 
     const lyrics = [
         "If you ever leave me, baby",
@@ -93,29 +70,101 @@ export default function List() {
         "If you walk away, everyday it'll rain, rain, rain"
     ];
 
+    async function playPauseAudio() {
+        if (sound) {
+            if (isPlaying) {
+                await sound.pauseAsync();
+            } else {
+                await sound.playAsync();
+            }
+            setIsPlaying(!isPlaying);
+        }
+    }
+
+    async function loadAudio() {
+        try {
+            const { sound } = await Audio.Sound.createAsync(
+                require("../../assets/audio/itwillrain.mp3"),
+                { shouldPlay: false }
+            );
+            setSound(sound);
+            const status = await sound.getStatusAsync();
+            if (isMounted.current) {
+                setDuration(status.durationMillis);
+            }
+        } catch (error) {
+            console.error("Error loading audio:", error);
+        }
+    }
+
+    useEffect(() => {
+        isMounted.current = true;
+        loadAudio();
+
+        return () => {
+            isMounted.current = false;
+            if (sound) {
+                sound.unloadAsync();
+            }
+        };
+    }, []);
+
+    useEffect(() => {
+        if (isPlaying && sound) {
+            const interval = setInterval(async () => {
+                const status = await sound.getStatusAsync();
+                if (isMounted.current && status.isPlaying) {
+                    setProgress(status.positionMillis);
+                }
+            }, 1000);
+            return () => clearInterval(interval);
+        }
+    }, [isPlaying, sound]);
+
+    const handleSliderValueChange = async (value) => {
+        if (sound && duration > 0) {
+            const newPosition = value * duration; 
+            await sound.setPositionAsync(newPosition);
+            setProgress(newPosition);
+        }
+    };
+
+    const formatTime = (millis) => {
+        const totalSeconds = Math.floor(millis / 1000);
+        const minutes = Math.floor(totalSeconds / 60);
+        const seconds = totalSeconds % 60;
+        return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    };
+
     return (
         <View style={styles.container}>
-            <Text>It Will Rain</Text>
+            <Text style={styles.title}>It Will Rain</Text>
+            <Image source={require('../../assets/images/banner3.png')} style={{width: 200, height: 120}}/>
+            <View style={{marginTop: 120, position: 'absolute'}}>
+            <ScrollView style={styles.text}>
+                {lyrics.map((line, index) => (
+                    <Text key={index} style={styles.lyricLine}>{line}</Text>
+                ))}
+           </ScrollView>
+            <View style={styles.progressContainer}>
+                <Text style={styles.timeText}>{formatTime(progress)}</Text>
+                <Slider
+                    style={styles.slider}
+                    minimumValue={0}
+                    maximumValue={1}
+                    value={duration > 0 ? progress / duration : 0}
+                    onValueChange={handleSliderValueChange}
+                    minimumTrackTintColor="#000000"
+                    maximumTrackTintColor="#000000"
+                />
+                <Text style={styles.timeText}>{formatTime(duration)}</Text>
+            </View>
+            <TouchableOpacity onPress={playPauseAudio} style={styles.iconButton}>
+                <Ionicons name={isPlaying ? "pause" : "play"} size={40} color="#000000" />
+            </TouchableOpacity> 
+            </View>
 
-            {/* Botão para mostrar ou esconder as letras */}
-            <TouchableOpacity onPress={() => setShowLyrics(!showLyrics)} style={styles.button}>
-                <Text style={styles.buttonText}>{showLyrics ? "Esconder Letra" : "Mostrar Letra"}</Text>
-            </TouchableOpacity>
-
-            {/* Mostrar as letras se o estado showLyrics for verdadeiro */}
-            {showLyrics && (
-                <ScrollView style={styles.text}>
-                    {lyrics.map((line, index) => (
-                        <Text key={index} style={styles.lyricLine}>{line}</Text>
-                    ))}
-                </ScrollView>
-            )}
-
-          
-                <Button onPress={playPauseAudio} title={isPlaying ? "Pausar" : "Reproduzir"} />
-
-
-            <Button title="Voltar" color="#e6b372" />
+           
         </View>
     );
 }
@@ -127,27 +176,43 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: "white",
     },
-    text: {
-        flex: 1,
-        maxHeight: 600,
-        width: 300,
-        borderWidth: 1,
-        borderRadius: 10,
-        marginVertical: 2,
-        padding: 15,
-        backgroundColor: "brown",
-    },
-    lyricLine: {
-        color: "white",
-    },
-    button: {
-        backgroundColor: "#e6b372",
-        padding: 10,
-        borderRadius: 5,
+    title: {
+        fontSize: 24,
+        fontWeight: 'bold',
         marginVertical: 10,
     },
-    buttonText: {
-        color: "white",
-        fontWeight: "bold",
+    progressContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: '100%',
+        justifyContent: 'space-between',
+        marginVertical: 10,
     },
+    timeText: {
+        color: "#000",
+        width: 50,
+        textAlign: 'center',
+    },
+    slider: {
+        flex: 1,
+        height: 40,
+        marginHorizontal: 10,
+    },
+    text: {
+        flex: 1,
+        maxHeight: 400,
+        width: '100%',
+        borderWidth: 1,
+        borderRadius: 10,
+        borderColor: "white",
+        marginVertical: 10,
+        padding: 15,
+        backgroundColor: "white",
+    },
+    lyricLine: {
+        color: "black",
+    },
+    iconButton:{
+        alignItems: 'center',
+    }
 });
