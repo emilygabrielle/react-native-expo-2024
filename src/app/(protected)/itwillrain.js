@@ -138,14 +138,15 @@ export default function List() {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>It Will Rain</Text>
-            <Image source={require('../../assets/images/banner3.png')} style={{width: 200, height: 120}}/>
-            <View style={{marginTop: 120, position: 'absolute'}}>
+            <Image source={require('../../assets/images/rain.png')} style={{width: 385, height: 280,}}/>
+            <View style={{marginTop: 180, position: 'absolute'}}>
+               
             <ScrollView style={styles.text}>
                 {lyrics.map((line, index) => (
                     <Text key={index} style={styles.lyricLine}>{line}</Text>
                 ))}
            </ScrollView>
+          
             <View style={styles.progressContainer}>
                 <Text style={styles.timeText}>{formatTime(progress)}</Text>
                 <Slider
@@ -203,14 +204,18 @@ const styles = StyleSheet.create({
         maxHeight: 400,
         width: '100%',
         borderWidth: 1,
-        borderRadius: 10,
+        borderRadius: 40,
         borderColor: "white",
-        marginVertical: 10,
         padding: 15,
         backgroundColor: "white",
+   
     },
     lyricLine: {
         color: "black",
+        textAlign: "center",
+        flex: 1,
+        flexGrow: 1,
+        fontSize: 16,
     },
     iconButton:{
         alignItems: 'center',
