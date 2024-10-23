@@ -1,6 +1,6 @@
 import { router } from "expo-router";
 import { useEffect, useRef, useState } from "react";
-import { Button, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, View } from "react-native";
+import { Alert, Button, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, View } from "react-native";
 import Ionicons from '@expo/vector-icons/Ionicons';
 import {Picker} from '@react-native-picker/picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
@@ -15,7 +15,8 @@ const paymentSchema = z.object({
   user_id: z.number().int().positive(),
   user_cadastro: z.number().int().positive(),
   data_pagamento: z.date(),
-  observacao: z.string(),
+  numero_recibo: z.string().optional(),
+  observacao: z.string().optional(),
 
 })
 
@@ -26,6 +27,7 @@ export default function Payment() {
       const [data, setData] = useState(new Date());
       const [viewCalendar, setViewCalendar] = useState(false);
       const [observacao, setObservacao] = useState("");
+      const [numeroRecibo, setNumeroRecibo] = useState("");
       const valueRef = useRef();
       const {user} = useAuth();
       const {createPayment} = usePaymentsDatabase();
@@ -90,7 +92,9 @@ export default function Payment() {
             user_cadastro: Number(user.user.id),
             valor_pago: convertValue(valor),
             data_pagamento: data,
+            numero_recibo: numeroRecibo,
             observacao,
+            
           };
 
           try {
@@ -101,9 +105,11 @@ export default function Payment() {
             setId(sugestoes[0].id);
             setData(new Date());
             setObservacao("");
+            setNumeroRecibo("");
             valueRef?.current?.focus();
             
           } catch (error) {
+            Alert.alert("Erro", `Erro ao inserir pagamento: ${error.message}`);
             console.log(error);
           }
         }
@@ -113,10 +119,16 @@ export default function Payment() {
         <View style={styles.content}>
           <Text>Inserir Pagamento</Text>
             <View style={styles.inputView}>
-                <Ionicons name="cash-outline" size={24} color="black" />
+                <Ionicons name="wallet-outline" size={24} color="black" />
                 <TextInput placeholder="Valor" keyboardType="decimal-pad" 
                 style={styles.inputValor} value={valor} onChangeText={(newValue)=>handleChangeValor(newValue)}
                 ref={valueRef}
+                />
+            </View>
+            <View style={styles.inputView}>
+                <Ionicons name="cash-outline" size={24} color="black" />
+                <TextInput placeholder="Número do Recibo" keyboardType="decimal-pad" 
+                style={styles.inputValor} value={numeroRecibo} onChangeText={setNumeroRecibo}
                 />
             </View>
             <View style={styles.inputView}>
