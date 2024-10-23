@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Text, View, Button, ScrollView, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { Text, View, ScrollView, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { Ionicons } from "@expo/vector-icons";
 import { Audio } from 'expo-av';
 import Slider from '@react-native-community/slider';
+import { useNavigation } from 'expo-router';
 
 export default function List() {
     const [sound, setSound] = useState();
@@ -10,7 +11,8 @@ export default function List() {
     const [progress, setProgress] = useState(0);
     const [duration, setDuration] = useState(0);
     const isMounted = useRef(true);
-
+    const navigation = useNavigation();
+    
     const lyrics = [
         "If you ever leave me, baby",
         "Leave some morphine at my door",
@@ -70,6 +72,8 @@ export default function List() {
         "If you walk away, everyday it'll rain, rain, rain"
     ];
 
+    /* Tocar, Pausar e verifica se está tocando*/
+
     async function playPauseAudio() {
         if (sound) {
             if (isPlaying) {
@@ -109,6 +113,8 @@ export default function List() {
         };
     }, []);
 
+
+
     useEffect(() => {
         if (isPlaying && sound) {
             const interval = setInterval(async () => {
@@ -138,6 +144,9 @@ export default function List() {
 
     return (
         <View style={styles.container}>
+           <TouchableOpacity onPress={() => navigation.navigate('album1')} style={styles.backButton}>
+    <Ionicons name="arrow-back" size={24} color="black" />
+</TouchableOpacity>
             <Image source={require('../../assets/images/rain.png')} style={{width: 385, height: 280,}}/>
             <View style={{marginTop: 180, position: 'absolute'}}>
                
@@ -219,5 +228,10 @@ const styles = StyleSheet.create({
     },
     iconButton:{
         alignItems: 'center',
-    }
+    },
+    backButton: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 16,
+    },
 });
