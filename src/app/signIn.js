@@ -1,15 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
-import { Alert, BackHandler, Button, Image, ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, BackHandler,ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useAuth } from '../hooks/Auth';
 import { router } from 'expo-router';
 import { Ionicons } from "@expo/vector-icons";
-import { useState } from 'react';
+import { useRef, useState } from 'react';
+import { ResizeMode, Video } from 'expo-av';
 
 export default function App() {
   const { signIn, signOut } = useAuth();
   const [email, setEmail] = useState("super@email.com");
   const [password, setPassword] = useState("A123456a!");
   const [passwordVisibility, setPasswordVisibility] = useState(false);
+  const video = useRef(null);
+  const [status, setStatus] = useState({});
 
 
   const tooglePasswordVisibility = () => {
@@ -28,8 +31,18 @@ export default function App() {
   }
 
   return (
-    <ImageBackground source={require('../assets/images/fundo.png')} style={styles.backgroundImage}>
+   
+     <ImageBackground  source={require('../assets/images/fundo.png')} style={styles.backgroundImage}>
     <View style={styles.container}>
+       <Video
+        ref={video}
+        style={styles.video}
+        source={require('../assets/videos/Music.mp4')}
+        useNativeControls
+        resizeMode={ResizeMode.CONTAIN}
+        isLooping
+        onPlaybackStatusUpdate={status => setStatus(() => status)}
+      />
       <Text style={styles.title}>Login</Text>
       <View style={styles.inputbox}>
         <Ionicons name="mail-open-outline" size={20} color="black" />
@@ -143,4 +156,9 @@ backgroundImage: {
   flex: 1,
   resizeMode: 'cover',
 },
+video:{
+  width: "100%",
+}
 });
+
+
