@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Alert, BackHandler, ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, BackHandler, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useAuth } from '../hooks/Auth';
 import { router } from 'expo-router';
 import { Ionicons } from "@expo/vector-icons";
@@ -37,19 +37,19 @@ export default function App() {
   };
 
   return (
-    <ImageBackground source={require('../assets/images/fundo.png')} style={styles.backgroundImage}>
-      <View style={styles.container}>
-        <Video
-          ref={video}
-          style={styles.video}
-          source={require('../assets/videos/Music.png')}
-          resizeMode={ResizeMode.CONTAIN}
-          isLooping
-          shouldPlay // Vídeo inicia automaticamente
-          isMuted // Opção para silenciar o vídeo
-          onPlaybackStatusUpdate={status => setStatus(() => status)}
-        />
+    <View style={styles.container}>
+      <Video
+        ref={video}
+        style={styles.backgroundVideo}
+        source={require('../assets/videos/fundo.mp4')} // Altere para o seu vídeo
+        resizeMode={ResizeMode.COVER} // Preencha o espaço
+        isLooping
+        shouldPlay
+        isMuted
+        onPlaybackStatusUpdate={status => setStatus(() => status)}
+      />
 
+      <View style={styles.overlay}>
         <View style={styles.inputbox}>
           <Ionicons name="mail-open-outline" size={20} color="black" />
           <TextInput
@@ -92,22 +92,20 @@ export default function App() {
 
         <StatusBar style="auto" />
       </View>
-    </ImageBackground>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  overlay: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 15,
     marginTop: 310,
-  },
-  title: {
-    fontFamily: "bold",
-    fontSize: 25,
-    color: "black",
+
   },
   inputbox: {
     flexDirection: "row",
@@ -155,13 +153,11 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
   },
-  backgroundImage: {
-    flex: 1,
-    resizeMode: 'cover',
+  backgroundVideo: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
   },
-  video: {
-    width: "70%",
-    height: 200,
-    position: "absolute",
-  }
 });

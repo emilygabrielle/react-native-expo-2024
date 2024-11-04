@@ -10,7 +10,7 @@ export default function Home() {
             <View style={styles.text}>
                 
             <ScrollView style={{flex: 1, width: 350}}>
-                <Image source={require('../../assets/images/foto.png')} style={{width: 350, height: 190, borderRadius: 50}}/>
+                <Image source={require('../../assets/images/foto.png')} style={{width: 390, height: 190}}/>
                 <Text style={{fontSize: 20, fontWeight: 'bold', padding: 6, textAlign: "center", color: "#000"}}>Biografia</Text>
                 <Text>
                     <Text  style={{ fontWeight: 'bold',}}>Bruno Mars</Text>, nome artístico de Peter Gene Hernandez, nasceu em 8 de outubro de 1985, em Honolulu, Havaí. 
