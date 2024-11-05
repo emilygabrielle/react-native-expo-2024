@@ -1,5 +1,5 @@
 import { router } from "expo-router";
-import { Button, Image, ScrollView, StyleSheet, Text } from "react-native";
+import { Button, Image, ScrollView, StyleSheet, Text, TouchableOpacity } from "react-native";
 
 export default function About() {
     return (
@@ -20,12 +20,9 @@ export default function About() {
             <Text style={styles.texto}>• Biografia e Discografia: Além das letras, o aplicativo oferece uma breve biografia do artista e uma lista de todos os seus álbuns, com detalhes sobre os singles lançados.</Text>
             <Text style={styles.texto}>• Análises e Interpretações: O app também oferece análises das letras, ajudando os usuários a entender melhor as mensagens e temas abordados nas músicas.</Text>
             <Text style={styles.texto}>• Playlist Personalizadas: Os usuários podem criar playlists de suas músicas favoritas diretamente no app, facilitando a experiência de ouvir e cantar.</Text>
-            <Button 
-                title="Voltar" 
-                onPress={() => { router.back() }} 
-                color="#000" 
-                style={styles.button} 
-            />
+            <TouchableOpacity  title="Voltar" onPress={() => { router.back() }} color="#000" style={styles.button} >
+          <Text style={{ color: "white", fontSize: 16}}>Voltar</Text>
+        </TouchableOpacity>
         </ScrollView>
     );
 }
@@ -34,7 +31,8 @@ const styles = StyleSheet.create({
     container: {
         flexGrow: 1,
         padding: 20,
-        marginTop: 20, // Ajuste aqui para evitar que fique muito alto
+        marginTop: 20,
+        backgroundColor: "#fff",
     },
     image: {
         width: '100%',
@@ -61,6 +59,20 @@ const styles = StyleSheet.create({
         padding: 5,
     },
     button: {
-        marginTop: 20,
+        width: 200,
+        height: 40,
+        fontFamily: "bold",
+        backgroundColor: "black",
+        alignItems: "center",
+        padding: 10,
+        borderRadius: 10,
+        marginBottom: 30,
+        shadowColor: "#000",
+        shadowOffset: { width: 2, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+        marginLeft: 75,
+        
     },
 });

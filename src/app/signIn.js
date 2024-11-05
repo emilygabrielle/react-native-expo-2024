@@ -77,7 +77,7 @@ export default function App() {
             />
           </TouchableOpacity>
         </View>
-
+        <View style={styles.top}>
         <TouchableOpacity style={styles.button} onPress={handleEntrarSuper} disabled={loading}>
           <Text>{loading ? 'Carregando...' : 'Entrar'}</Text>
         </TouchableOpacity>
@@ -89,6 +89,7 @@ export default function App() {
         <TouchableOpacity title="Sair do Aplicativo" onPress={() => BackHandler.exitApp()} style={styles.sair}>
           <Text>Sair do Aplicativo</Text>
         </TouchableOpacity>
+        </View>
 
         <StatusBar style="auto" />
       </View>
@@ -132,6 +133,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     alignItems: "center",
     padding: 10,
+    borderRadius: 10,
     marginBottom: 20,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
@@ -146,18 +148,23 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     alignItems: "center",
     padding: 10,
-    marginBottom: 20,
+    borderRadius: 10,
+    marginBottom: 30,
     shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: { width: 2, height: 2 },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     elevation: 5,
   },
   backgroundVideo: {
     position: 'absolute',
+    height: '101%',
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
   },
+  top:{
+    marginTop: 30
+  }
 });
