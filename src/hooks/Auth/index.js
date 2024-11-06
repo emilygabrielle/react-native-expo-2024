@@ -13,7 +13,7 @@ export const Role = {
 
 export function AuthProvider({ children }) {
     const [user, setUser] = useState({
-        autenticated: null,
+        authenticated: false,
         user: null,
         role: null,
     });
@@ -21,24 +21,24 @@ export function AuthProvider({ children }) {
     const { authUser } = useUsersDatabase();
 
     useEffect(() => {
-        const loadStorageData = async () => {
-            const storageUser = await AsyncStorage.getItem("@payment:user");
-            if (storageUser) {
+        const loadStoragedData = async () => {
+            const storagedUser = await AsyncStorage.getItem("@payment:user");
+            if (storagedUser) {
                 setUser({
-                    autenticated: true,
-                    user: JSON.parse(storageUser),
-                    role: JSON.parse(storageUser).role,
+                    authenticated: true,
+                    user: JSON.parse(storagedUser),
+                    role: JSON.parse(storagedUser).role,
                 });
             }else{
                 setUser({
-                    autenticated: false,
+                    authenticated: false,
                     user: null,
                     role: null,
                 });
             }
         };
 
-        loadStorageData();
+        loadStoragedData();
     },[]);
 
     const signIn = async ({ email, password }) => {
@@ -46,7 +46,7 @@ export function AuthProvider({ children }) {
 
         if (!response) {
             setUser({
-                autenticated: false,
+                authenticated: false,
                 user: null,
                 role: null,
             });
@@ -56,7 +56,7 @@ export function AuthProvider({ children }) {
         await AsyncStorage.setItem("@payment:user", JSON.stringify(response));
 
         setUser({
-            autenticated: true,
+            authenticated: true,
             user: response,
             role: response.role,
         });
@@ -65,10 +65,14 @@ export function AuthProvider({ children }) {
 
     const signOut = async () => {
         await AsyncStorage.removeItem("@payment:user");
-        setUser({});
+        setUser({
+            authenticated: false,
+            user: null,
+            role: null,
+        });
     };
 
-    if (user?.autenticated === null ) {
+    if (user?.authenticated === null ) {
         return(
             <View style={{flex:1, justifyContent:"center", alignItems:"center"}}>
             <Text style={{fontSize:28, marginTop:15,}}>Carregando Dados do Usuário</Text>

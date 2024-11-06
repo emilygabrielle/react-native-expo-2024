@@ -1,14 +1,20 @@
+import { Video } from "expo-av";
 import { router } from "expo-router";
 import { Button, Image, ScrollView, StyleSheet, Text, TouchableOpacity } from "react-native";
 
 export default function About() {
     return (
         <ScrollView contentContainerStyle={styles.container}>
-            <Image 
-                source={require('../assets/images/foto.png')} 
-                style={styles.image} 
-                accessibilityLabel="Bruno Mars"
+            <Video
+                source={require("../assets/videos/video.mp4")}
+                style={styles.image}
+                resizeMode="cover"
+                isLooping
+                shouldPlay
+                isMuted
             />
+
+            
             <Text style={styles.titulo}>Bruno Mars Music</Text>
             <Text style={styles.sub}>"Cante, Conecte e Explore a Música!"</Text>
             <Text style={styles.texto}>
