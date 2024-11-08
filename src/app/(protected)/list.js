@@ -21,7 +21,7 @@ export default function List () {
     renderItem = ({item}) => (
         <View  style={{ flexDirection: "row", margin: 5}}>
             <View style={{ flex: 1}}>
-                <Text>nome pagante</Text>
+                <Text>{item.nome}</Text>
 
                 <View style={{ flexDirection:"row", justifyContent: "center"}}>
                 <Text>{item.data_pagamento}</Text>
