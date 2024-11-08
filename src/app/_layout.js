@@ -14,7 +14,7 @@ const StackLayout = () => {
             router.replace("signIn")
         }
         else {
-            router.replace("(protected)");
+            router.replace("(protected)/list");
         }
     }, [user]);
    return (
