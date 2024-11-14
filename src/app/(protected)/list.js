@@ -14,13 +14,15 @@ export default function List () {
 
     async function fetchData() {
 
-        if (!hasMore == false) return;
+        if (hasMore == false) return;
+        console.log(page)
         setPage(page + 1);
+
         const payments = await getPayments(page);
 
         if (payments.length < 5) setHasMore(false);
         //console.log(payments);
-        setData([payments]);
+        setData([...data, ...payments]);
         setLoading(false);
         
     }
@@ -31,9 +33,9 @@ export default function List () {
     }, [])
 
     renderItem = ({item}) => (
-        <View  style={{ flexDirection: "row", margin: 10, backgroundColor: "#fff", padding: 3, height: 150}}>
+        <View  style={{ flexDirection: "row", margin: 10, backgroundColor: "#fff", padding: 3}}>
             <View style={{ flex: 1, gap: 5}}>
-                <Text style={{fontFamily: "bold", fontSize: 18}}>{item.nome}</Text>
+                <Text style={{fontFamily: "bold", fontSize: 18, textTransform: "uppercase"}}>{item.nome}</Text>
 
                 <View style={{ flexDirection:"row", gap:10}}>
                 <Text style={{fontFamily:"regular"}}>{formatDateToBrazilian(item.data_pagamento || new Date())}</Text>
@@ -50,7 +52,6 @@ export default function List () {
 
     return (
         <View style={{ flex: 1}}>
-            <Text>Pagamentos</Text>
             <View style={{ flex: 1}}>
             <FlashList
             data={data}
@@ -58,6 +59,7 @@ export default function List () {
             estimatedItemSize={50}
             onEndReached={fetchData}
             onEndReachedThreshold={0.8}
+            keyExtractor={(item) => item.id.toString()}
             />
             </View>
         </View>
