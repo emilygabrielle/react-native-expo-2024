@@ -144,9 +144,7 @@ export default function List() {
 
     return (
         <View style={styles.container}>
-           <TouchableOpacity onPress={() => navigation.navigate('album1')} style={styles.backButton}>
-    <Ionicons name="arrow-back" size={24} color="black" />
-</TouchableOpacity>
+           
             <Image source={require('../../assets/images/rain.png')} style={{width: 385, height: 280,}}/>
             <View style={{marginTop: 180, position: 'absolute'}}>
                
@@ -215,7 +213,6 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 40,
         borderColor: "white",
-        padding: 15,
         backgroundColor: "white",
    
     },

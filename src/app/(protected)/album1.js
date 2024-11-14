@@ -1,5 +1,5 @@
 import { useNavigation } from "expo-router";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { Button, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function List() {
     const navigation = useNavigation();
@@ -7,13 +7,18 @@ export default function List() {
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <Text>Álbum 1</Text>
-            <Button
-
-                title="Ir para It Rain"
+           
+            <TouchableOpacity 
                 onPress={() => navigation.navigate('itwillrain')}
-                style={StyleSheet.button} 
-            
-            />
+                style={styles.button} >
+                <Text>Ir para it will rain</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity 
+                onPress={() => navigation.navigate('24kmagic')}
+                style={styles.button} >
+                <Text>Ir para 24K magic</Text>
+            </TouchableOpacity>
         </View>
     );
 }

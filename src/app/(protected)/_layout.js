@@ -4,94 +4,127 @@ import { Ionicons } from "@expo/vector-icons";
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useAuth } from '../../hooks/Auth/index';
+import { useNavigation } from '@react-navigation/native'; // Importando o hook useNavigation
 
 function CustomDrawerContent(props) {
-  const { user, signOut} = useAuth();
+  const { user, signOut } = useAuth();
 
   return (
-    <View style={{ flex: 1}}>
-      <View style={{marginTop: 20, justifyContent:"center", alignItems: "center", backgroundColor: "	#B22222" }}>
-
-      <Image source={require('../../../src/assets/images/usuario.png')} style={{width: 132,
-            height: 132, borderRadius: 55, marginTop: 10,}}/>
-
-        <Text style={{textAlign: "center", fontSize: 16, fontFamily: "regular",}}>
-          {user?.user?.nome}</Text>
+    <View style={{ flex: 1 }}>
+      <View style={{ marginTop: 20, justifyContent: "center", alignItems: "center", backgroundColor: "#B22222" }}>
+        <Image source={require('../../../src/assets/images/usuario.png')} style={{ width: 132, height: 132, borderRadius: 55, marginTop: 10 }} />
+        <Text style={{ textAlign: "center", fontSize: 16, fontFamily: "regular" }}>
+          {user?.user?.nome}
+        </Text>
       </View>
       <DrawerContentScrollView {...props}>
-      <DrawerItemList {...props} />
-     </DrawerContentScrollView>
-     <TouchableOpacity onPress={()=>signOut()}
-     style={styles.button}>
-      <Text style={{color: "white", fontFamily: "bold",}}>Deslogar</Text>
-     </TouchableOpacity>
-
+        <DrawerItemList {...props} />
+      </DrawerContentScrollView>
+      <TouchableOpacity onPress={() => signOut()} style={styles.button}>
+        <Text style={{ color: "white", fontFamily: "bold" }}>Deslogar</Text>
+      </TouchableOpacity>
     </View>
-    
   );
 }
 
 const DrawerLayout = () => {
-    return (
-        <GestureHandlerRootView style={{ flex: 1 }}>
-          <Drawer drawerContent={(props) => <CustomDrawerContent {...props}/>}>
-            <Drawer.Screen 
-            name="index" 
-            options={{drawerLabel: "Principal", headerTitle:"Principal", 
-              drawerIcon: ()=> <Ionicons name="home" size={20} color="black" /> }} />
-                          
-            <Drawer.Screen 
-            name="album1" 
-            options={{drawerLabel: "Álbum 1", 
-            headerTitle:"Álbum 1",  
-            drawerIcon: ()=> <Ionicons name="disc" size={20} color="black"/>}} />
+  return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <Drawer drawerContent={(props) => <CustomDrawerContent {...props} />}>
+        <Drawer.Screen
+          name="index"
+          options={{
+            drawerLabel: "Principal",
+            headerTitle: "Principal",
+            drawerIcon: () => <Ionicons name="home" size={20} color="black" />
+          }}
+        />
+        <Drawer.Screen
+          name="album1"
+          options={{
+            drawerLabel: "Álbum 1",
+            headerTitle: "Álbum 1",
+            drawerIcon: () => <Ionicons name="disc" size={20} color="black" />
+          }}
+        />
+        <Drawer.Screen
+          name="album2"
+          options={{
+            drawerLabel: "Álbum 2",
+            headerTitle: "Álbum 2",
+            drawerIcon: () => <Ionicons name="disc" size={20} color="black" />
+          }}
+        />
+        <Drawer.Screen
+          name="album3"
+          options={{
+            drawerLabel: "Álbum 3",
+            headerTitle: "Álbum 3",
+            drawerIcon: () => <Ionicons name="disc" size={20} color="black" />
+          }}
+        />
+        <Drawer.Screen
+          name="album4"
+          options={{
+            drawerLabel: "Álbum 4",
+            headerTitle: "Álbum 4",
+            drawerIcon: () => <Ionicons name="disc" size={20} color="black" />
+          }}
+        />
+      <Drawer.Screen
+          name="itwillrain"
+          options={({ navigation }) => ({
+            drawerLabel: "it will rain",
+            headerTitle: "it will rain",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album1')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" />
+              </TouchableOpacity>
+            ),
+          })}
+        />
 
-            <Drawer.Screen 
-            name="album2" 
-            options={{drawerLabel: "Álbum 2", 
-            headerTitle:"Álbum 2",  
-            drawerIcon: ()=> <Ionicons name="disc" size={20} color="black"/>}} />
-
-           <Drawer.Screen 
-            name="album3" 
-            options={{drawerLabel: "Álbum 3", 
-            headerTitle:"Álbum 3",  
-            drawerIcon: ()=> <Ionicons name="disc" size={20} color="black"/>}} />
-
-           <Drawer.Screen 
-            name="album4" 
-            options={{drawerLabel: "Álbum 4", 
-            headerTitle:"Álbum 4",  
-            drawerIcon: ()=> <Ionicons name="disc" size={20} color="black"/>}} />
-
-             <Drawer.Screen 
-            name="itwillrain" 
-            options={{drawerLabel: "It Will Rain", 
-            headerTitle:"It Will Rain",  
-            drawerItemStyle: {display: "none"}
-            }} />
-            
-            <Drawer.Screen 
-            name="favoritos" 
-            options={{drawerLabel: "Favoritos", 
-            headerTitle:"Favoritos",  
-            drawerIcon: ()=> <Ionicons name="heart" size={20} color="red"/>}} />
-
-         
-           <Drawer.Screen 
-            name="list" 
-            options={{drawerLabel: "Listagem", headerTitle:"Listagem",  
-              drawerIcon: ()=> <Ionicons name="list" size={20} color="black"/> 
-            }} />
-
-           <Drawer.Screen 
-            name="payment" 
-            options={{drawerLabel: "Pagamentos", 
-            headerTitle:"Pagamentos",  
-            drawerIcon: ()=> <Ionicons name="cash-outline" size={20} color="black"/>}} />
-          </Drawer>
-        </GestureHandlerRootView>
-      );
+        <Drawer.Screen
+          name="24kmagic"
+          options={({ navigation }) => ({
+            drawerLabel: "24K Magic",
+            headerTitle: "24K Magic",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album1')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" />
+              </TouchableOpacity>
+            ),
+          })}
+        />
+        <Drawer.Screen
+          name="favoritos"
+          options={{
+            drawerLabel: "Favoritos",
+            headerTitle: "Favoritos",
+            drawerIcon: () => <Ionicons name="heart" size={20} color="red" />
+          }}
+        />
+        <Drawer.Screen
+          name="list"
+          options={{
+            drawerLabel: "Listagem",
+            headerTitle: "Listagem",
+            drawerIcon: () => <Ionicons name="list" size={20} color="black" />
+          }}
+        />
+        <Drawer.Screen
+          name="payment"
+          options={{
+            drawerLabel: "Pagamentos",
+            headerTitle: "Pagamentos",
+            drawerIcon: () => <Ionicons name="cash-outline" size={20} color="black" />
+          }}
+        />
+      </Drawer>
+    </GestureHandlerRootView>
+  );
 }
 
 export default function Layout() {
@@ -110,4 +143,4 @@ const styles = StyleSheet.create({
     marginBottom: 40,
     marginLeft: 13,
   },
-})
+});
