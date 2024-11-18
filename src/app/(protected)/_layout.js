@@ -98,6 +98,129 @@ const DrawerLayout = () => {
             ),
           })}
         />
+
+        
+        <Drawer.Screen
+          name="chunky"
+          options={({ navigation }) => ({
+            drawerLabel: "Chunky",
+            headerTitle: "Chunky",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album1')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" />
+              </TouchableOpacity>
+            ),
+          })}
+        />
+
+        <Drawer.Screen
+          name="perm"
+          options={({ navigation }) => ({
+            drawerLabel: "Perm",
+            headerTitle: "Perm",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album1')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" /> 
+              </TouchableOpacity>
+            ),
+          })}
+        />
+
+        <Drawer.Screen
+          name="that"
+          options={({ navigation }) => ({
+            drawerLabel: "That's what  i like",
+            headerTitle: "That's what  i like",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album1')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" /> 
+              </TouchableOpacity>
+            ),
+          })}
+        />
+
+       <Drawer.Screen
+          name="versace"
+          options={({ navigation }) => ({
+            drawerLabel: "Versace on the floor",
+            headerTitle: "Versace on the floor",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album1')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" /> 
+              </TouchableOpacity>
+            ),
+          })}
+        />
+
+       <Drawer.Screen
+          name="straight"
+          options={({ navigation }) => ({
+            drawerLabel: "Straight Up & Down",
+            headerTitle: "Straight Up & Down",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album1')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" /> 
+              </TouchableOpacity>
+
+
+            ),
+          })}
+        />
+
+      <Drawer.Screen
+          name="calling"
+          options={({ navigation }) => ({
+            drawerLabel: "Calling All My Lovelies",
+            headerTitle: "Calling All My Lovelies",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album1')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" /> 
+              </TouchableOpacity>
+
+
+            ),
+          })}
+        />
+
+       <Drawer.Screen
+          name="finesse"
+          options={({ navigation }) => ({
+            drawerLabel: "Finesse",
+            headerTitle: "Finesse",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album1')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" /> 
+              </TouchableOpacity>
+
+
+            ),
+          })}
+        />
+
+       <Drawer.Screen
+          name="too"
+          options={({ navigation }) => ({
+            drawerLabel: "Too Good To Say Goodbye",
+            headerTitle: "Too Good To Say Goodbye",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album1')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" /> 
+              </TouchableOpacity>
+
+
+            ),
+          })}
+        />
+
+
         <Drawer.Screen
           name="favoritos"
           options={{
