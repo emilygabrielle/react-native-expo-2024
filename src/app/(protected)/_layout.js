@@ -220,6 +220,209 @@ const DrawerLayout = () => {
           })}
         />
 
+       <Drawer.Screen
+          name="count"
+          options={({ navigation }) => ({
+            drawerLabel: "Count On Me",
+            headerTitle: "Count On Me",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album2')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" /> 
+              </TouchableOpacity>
+
+
+            ),
+          })}
+        />
+
+         <Drawer.Screen
+          name="moon"
+          options={({ navigation }) => ({
+            drawerLabel: "Talking to the Moon",
+            headerTitle: "Talking to the Moon",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album2')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" /> 
+              </TouchableOpacity>
+            ),
+          })}
+        />
+
+     <Drawer.Screen
+          name="somewhere"
+          options={({ navigation }) => ({
+            drawerLabel: "Somewhere in Brooklyn",
+            headerTitle: "Somewhere in Brooklyn",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album2')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" /> 
+              </TouchableOpacity>
+            ),
+          })}
+        />
+
+     <Drawer.Screen
+          name="side"
+          options={({ navigation }) => ({
+            drawerLabel: "The Other Side",
+            headerTitle: "The Other Side",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album2')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" /> 
+              </TouchableOpacity>
+            ),
+          })}
+        />
+
+       <Drawer.Screen
+          name="grenade"
+          options={({ navigation }) => ({
+            drawerLabel: "Grenade",
+            headerTitle: "Grenade",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album3')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" /> 
+              </TouchableOpacity>
+            ),
+          })}
+        />
+
+      <Drawer.Screen
+          name="just"
+          options={({ navigation }) => ({
+            drawerLabel: "Just The Way You Are",
+            headerTitle: "Just The Way You Are",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album3')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" /> 
+              </TouchableOpacity>
+            ),
+          })}
+        />
+
+        <Drawer.Screen
+          name="our"
+          options={({ navigation }) => ({
+            drawerLabel: "Our First Time",
+            headerTitle: "Our First Time",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album3')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" /> 
+              </TouchableOpacity>
+            ),
+          })}
+        />
+
+      <Drawer.Screen
+          name="baby"
+          options={({ navigation }) => ({
+            drawerLabel: "Runaway Baby",
+            headerTitle: "Runaway Baby",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album3')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" /> 
+              </TouchableOpacity>
+            ),
+          })}
+        />
+
+        <Drawer.Screen
+          name="lazy"
+          options={({ navigation }) => ({
+            drawerLabel: "The Lazy Song",
+            headerTitle: "The Lazy Song",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album3')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" /> 
+              </TouchableOpacity>
+            ),
+          })}
+        />
+
+     <Drawer.Screen
+          name="marry"
+          options={({ navigation }) => ({
+            drawerLabel: "Marry You",
+            headerTitle: "Marry You",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album3')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" /> 
+              </TouchableOpacity>
+            ),
+          })}
+        />
+
+        <Drawer.Screen
+          name="moon"
+          options={({ navigation }) => ({
+            drawerLabel: "Talking to the Moon",
+            headerTitle: "Talking to the Moon",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album3')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" /> 
+              </TouchableOpacity>
+            ),
+          })}
+        />
+
+   <Drawer.Screen
+          name="blues"
+          options={({ navigation }) => ({
+            drawerLabel: "Liquor Store Blues",
+            headerTitle: "Liquor Store Blues",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album3')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" /> 
+              </TouchableOpacity>
+            ),
+          })}
+        />
+
+       <Drawer.Screen
+          name="count"
+          options={({ navigation }) => ({
+            drawerLabel: "Count On Me",
+            headerTitle: "Count On Me",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album3')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" /> 
+              </TouchableOpacity>
+
+
+            ),
+          })}
+        />
+
+      <Drawer.Screen
+          name="side"
+          options={({ navigation }) => ({
+            drawerLabel: "The Other Side",
+            headerTitle: "The Other Side",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album3')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" /> 
+              </TouchableOpacity>
+            ),
+          })}
+        />
+
+
+
+
 
         <Drawer.Screen
           name="favoritos"

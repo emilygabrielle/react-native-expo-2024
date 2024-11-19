@@ -60,7 +60,7 @@ export default function List() {
 "(It's warmin' up) can you feel it?",
 "(It's warmin' up) can you feel it, baby?",
 "(It's warmin' up) oh-oh",
-"Seems like you're ready",
+"Seems like you're ready"
     ];
 
     /* Tocar, Pausar e verifica se está tocando*/
