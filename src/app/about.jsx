@@ -5,14 +5,7 @@ import { Button, Image, ScrollView, StyleSheet, Text, TouchableOpacity } from "r
 export default function About() {
     return (
         <ScrollView contentContainerStyle={styles.container}>
-            <Video
-                source={require("../assets/videos/video.mp4")}
-                style={styles.image}
-                resizeMode="cover"
-                isLooping
-                shouldPlay
-                isMuted
-            />
+
 
             
             <Text style={styles.titulo}>Bruno Mars Music</Text>

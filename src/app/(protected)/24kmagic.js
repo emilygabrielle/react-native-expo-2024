@@ -127,7 +127,7 @@ export default function List() {
     async function loadAudio() {
         try {
             const { sound } = await Audio.Sound.createAsync(
-                require("../../assets/audio/24kmagic.mp3"),
+                require("../../assets/audio/magic.mp3"),
                 { shouldPlay: false }
             );
             setSound(sound);

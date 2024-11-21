@@ -21,21 +21,9 @@ export default function List() {
             </TouchableOpacity>
 
             <TouchableOpacity 
-                onPress={() => navigation.navigate('gorilla')}
-                style={styles.button} >
-                <Text>Ir para Gorilla</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity 
                 onPress={() => navigation.navigate('treasure')}
                 style={styles.button} >
                 <Text>Ir para Treasure</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity 
-                onPress={() => navigation.navigate('moonshine')}
-                style={styles.button} >
-                <Text>Ir para Moonshine</Text>
             </TouchableOpacity>
 
             <TouchableOpacity 
@@ -44,41 +32,7 @@ export default function List() {
                 <Text>Ir para When I Was Your Man</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity 
-                onPress={() => navigation.navigate('natalie')}
-                style={styles.button} >
-                <Text>Ir para Natalie</Text>
-            </TouchableOpacity>
 
-            <TouchableOpacity 
-                onPress={() => navigation.navigate('show')}
-                style={styles.button} >
-                <Text>Ir para Show Me</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity 
-                onPress={() => navigation.navigate('money')}
-                style={styles.button} >
-                <Text>Ir para Money Make Her Smile</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity 
-                onPress={() => navigation.navigate('if')}
-                style={styles.button} >
-                <Text>Ir para If I Knew</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity 
-                onPress={() => navigation.navigate('old')}
-                style={styles.button} >
-                <Text>Ir para Old & Crazy</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity 
-                onPress={() => navigation.navigate('heavenfeat')}
-                style={styles.button} >
-                <Text>Ir para Locked Out Of Heaven</Text>
-            </TouchableOpacity>
 
 
         </View>

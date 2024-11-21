@@ -21,18 +21,6 @@ export default function List() {
             </TouchableOpacity>
 
             <TouchableOpacity 
-                onPress={() => navigation.navigate('our')}
-                style={styles.button} >
-                <Text>Ir para Our First Time</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity 
-                onPress={() => navigation.navigate('baby')}
-                style={styles.button} >
-                <Text>Ir para Runaway Baby</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity 
                 onPress={() => navigation.navigate('lazy')}
                 style={styles.button} >
                 <Text>Ir para The Lazy Song</Text>
@@ -44,11 +32,6 @@ export default function List() {
                 <Text>Ir para Marry You</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity 
-                onPress={() => navigation.navigate('moon')}
-                style={styles.button} >
-                <Text>Ir para Talking To The Moon</Text>
-            </TouchableOpacity>
 
             <TouchableOpacity 
                 onPress={() => navigation.navigate('blues')}
@@ -56,17 +39,6 @@ export default function List() {
                 <Text>Ir para Liquor Store Blues</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity 
-                onPress={() => navigation.navigate('count')}
-                style={styles.button} >
-                <Text>Ir para Count On Me </Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity 
-                onPress={() => navigation.navigate('side')}
-                style={styles.button} >
-                <Text>Ir para The Other Side</Text>
-            </TouchableOpacity>
 
 
         </View>
