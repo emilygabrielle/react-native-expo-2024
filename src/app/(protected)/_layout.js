@@ -4,16 +4,18 @@ import { Ionicons } from "@expo/vector-icons";
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useAuth } from '../../hooks/Auth/index';
+
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/native'; // Importando o hook useNavigation
 
 function CustomDrawerContent(props) {
   const { user, signOut } = useAuth();
 
   return (
-    <View style={{ flex: 1 }}>
-      <View style={{ marginTop: 20, justifyContent: "center", alignItems: "center", backgroundColor: "#B22222" }}>
-        <Image source={require('../../../src/assets/images/usuario.png')} style={{ width: 120, height: 120, borderRadius: 65, marginTop: 10 }} />
-        <Text style={{ textAlign: "center", fontSize: 16, fontFamily: "regular" }}>
+    <View style={{ flex: 1}}>
+      <View style={{ marginTop: 20, justifyContent: "center", alignItems: "center", backgroundColor: "#ffff" }}>
+        <Image source={require('../../../src/assets/images/usuario.png')} style={{ width: 220, height: 200, borderRadius: 55, marginTop:-5 }} />
+        <Text style={{ textAlign: "center", fontSize: 20, fontFamily: "regular", marginTop: -20}}>
           {user?.user?.nome}
         </Text>
       </View>
@@ -21,7 +23,7 @@ function CustomDrawerContent(props) {
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
       <TouchableOpacity onPress={() => signOut()} style={styles.button}>
-        <Text style={{ color: "white", fontFamily: "bold" }}>Deslogar</Text>
+        <Text style={{ color: "white", fontSize: 15}}>Deslogar</Text>
       </TouchableOpacity>
     </View>
   );
@@ -44,7 +46,7 @@ const DrawerLayout = () => {
           options={{
             drawerLabel: "Álbum 1",
             headerTitle: "Álbum 1",
-            drawerIcon: () => <Ionicons name="disc" size={20} color="black" />
+            drawerIcon: () => <MaterialIcons name="my-library-music" size={24} color="#008B8B" />
           }}
         />
         <Drawer.Screen
@@ -52,7 +54,7 @@ const DrawerLayout = () => {
           options={{
             drawerLabel: "Álbum 2",
             headerTitle: "Álbum 2",
-            drawerIcon: () => <Ionicons name="disc" size={20} color="black" />
+            drawerIcon: () =>  <MaterialIcons name="my-library-music" size={24} color="#20B2AA" />
           }}
         />
         <Drawer.Screen
@@ -60,7 +62,7 @@ const DrawerLayout = () => {
           options={{
             drawerLabel: "Álbum 3",
             headerTitle: "Álbum 3",
-            drawerIcon: () => <Ionicons name="disc" size={20} color="black" />
+            drawerIcon: () =>  <MaterialIcons name="my-library-music" size={24} color="#48D1CC" />
           }}
         />
         <Drawer.Screen
@@ -68,7 +70,7 @@ const DrawerLayout = () => {
           options={{
             drawerLabel: "Álbum 4",
             headerTitle: "Álbum 4",
-            drawerIcon: () => <Ionicons name="disc" size={20} color="black" />
+            drawerIcon: () => <MaterialIcons name="my-library-music" size={24} color="#40E0D0" />
           }}
         />
 
@@ -305,15 +307,21 @@ const DrawerLayout = () => {
           })}
         />
 
-
-        <Drawer.Screen
-          name="favoritos"
-          options={{
-            drawerLabel: "Favoritos",
-            headerTitle: "Favoritos",
-            drawerIcon: () => <Ionicons name="heart" size={20} color="red" />
-          }}
+<Drawer.Screen
+          name="too"
+          options={({ navigation }) => ({
+            drawerLabel: "Too Good To Say Goodbye",
+            headerTitle: "Too Good To Say Goodbye",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album1')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" /> 
+              </TouchableOpacity>
+            ),
+          })}
         />
+
+
         <Drawer.Screen
           name="list"
           options={{
@@ -341,14 +349,14 @@ export default function Layout() {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: "#333",
+    backgroundColor: "#000",
     padding: 10,
     borderRadius: 5,
-    marginTop: 20,
-    justifyContent: "center",
+    marginTop: 35,
     alignItems: "center",
-    width: 250,
-    marginBottom: 40,
-    marginLeft: 13,
+    width: 200,
+
+    marginBottom: 3,
+    marginLeft: 35,
   },
 });

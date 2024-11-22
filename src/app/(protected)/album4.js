@@ -9,7 +9,7 @@ export default function List() {
 
             <View style={styles.musicItem}>
                 <Image 
-                    source={require('../../assets/images/magic.png')} // Altere com o caminho da sua imagem
+                    source={require('../../assets/images/girls.png')} // Altere com o caminho da sua imagem
                     style={styles.albumImage}
                 />
                 <View style={styles.musicDetails}>
@@ -28,7 +28,7 @@ export default function List() {
 
             <View style={styles.musicItem}>
                 <Image 
-                    source={require('../../assets/images/foto.png')} // Altere com o caminho da sua imagem
+                    source={require('../../assets/images/heaven.png')} // Altere com o caminho da sua imagem
                     style={styles.albumImage}
                 />
                 <View style={styles.musicDetails}>
@@ -47,7 +47,7 @@ export default function List() {
 
             <View style={styles.musicItem}>
                 <Image 
-                    source={require('../../assets/images/foto.png')} // Altere com o caminho da sua imagem
+                    source={require('../../assets/images/smile.png')} // Altere com o caminho da sua imagem
                     style={styles.albumImage}
                 />
                 <View style={styles.musicDetails}>
@@ -65,7 +65,7 @@ export default function List() {
 
             <View style={styles.musicItem}>
                 <Image 
-                    source={require('../../assets/images/foto.png')} // Altere com o caminho da sua imagem
+                    source={require('../../assets/images/man.png')} // Altere com o caminho da sua imagem
                     style={styles.albumImage}
                 />
                 <View style={styles.musicDetails}>
@@ -108,8 +108,8 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     albumImage: {
-        width: 80,
-        height: 80,
+        width: 100,
+        height: 100,
         borderRadius: 5,
         marginRight: 15,
     },
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     },
     button: {
         marginTop: 15,
-        backgroundColor: '#e6b372', // Cor do botão
+        backgroundColor: '#000', // Cor do botão
         paddingVertical: 10,
         paddingHorizontal: 20,
         borderRadius: 5,

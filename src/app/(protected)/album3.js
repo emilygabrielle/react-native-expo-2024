@@ -1,15 +1,15 @@
 import { useNavigation } from "expo-router";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity, View, ScrollView } from "react-native";
 
 export default function List() {
     const navigation = useNavigation();
 
     return (
-        <View style={styles.container}>
-
+        <ScrollView contentContainerStyle={styles.container}>
+            {/* Música: Grenade */}
             <View style={styles.musicItem}>
                 <Image 
-                    source={require('../../assets/images/magic.png')} // Altere com o caminho da sua imagem
+                    source={require('../../assets/images/grenade.png')} // Altere com o caminho da sua imagem
                     style={styles.albumImage}
                 />
                 <View style={styles.musicDetails}>
@@ -25,10 +25,10 @@ export default function List() {
                 </View>
             </View>
 
-
+            {/* Música: Just The Way You Are */}
             <View style={styles.musicItem}>
                 <Image 
-                    source={require('../../assets/images/foto.png')} // Altere com o caminho da sua imagem
+                    source={require('../../assets/images/olhos.png')} // Altere com o caminho da sua imagem
                     style={styles.albumImage}
                 />
                 <View style={styles.musicDetails}>
@@ -44,10 +44,10 @@ export default function List() {
                 </View>
             </View>
 
-
+            {/* Música: The Lazy Song */}
             <View style={styles.musicItem}>
                 <Image 
-                    source={require('../../assets/images/foto.png')} // Altere com o caminho da sua imagem
+                    source={require('../../assets/images/the.png')} // Altere com o caminho da sua imagem
                     style={styles.albumImage}
                 />
                 <View style={styles.musicDetails}>
@@ -63,7 +63,7 @@ export default function List() {
                 </View>
             </View>
 
-
+            {/* Música: Marry You */}
             <View style={styles.musicItem}>
                 <Image 
                     source={require('../../assets/images/marry.png')} // Altere com o caminho da sua imagem
@@ -82,10 +82,10 @@ export default function List() {
                 </View>
             </View>
 
-
+            {/* Música: Liquor Store Blues */}
             <View style={styles.musicItem}>
                 <Image 
-                    source={require('../../assets/images/foto.png')} // Altere com o caminho da sua imagem
+                    source={require('../../assets/images/blues.png')} // Altere com o caminho da sua imagem
                     style={styles.albumImage}
                 />
                 <View style={styles.musicDetails}>
@@ -101,13 +101,13 @@ export default function List() {
                 </View>
             </View>
 
-        </View>
+        </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flexGrow: 1, // Garante que o conteúdo ocupe o espaço necessário e permita rolar
         justifyContent: 'flex-start',
         alignItems: 'center',
         backgroundColor: '#f3f3f3', // Cor de fundo
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
     },
     button: {
         marginTop: 15,
-        backgroundColor: '#e6b372', // Cor do botão
+        backgroundColor: '#000', // Cor do botão
         paddingVertical: 10,
         paddingHorizontal: 20,
         borderRadius: 5,
