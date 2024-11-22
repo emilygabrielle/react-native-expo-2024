@@ -9,13 +9,13 @@ export default function List() {
             {/* Música: 24K Magic */}
             <View style={styles.musicItem}>
                 <Image 
-                    source={require('../../assets/images/foto.png')} // Altere com o caminho da sua imagem
+                    source={require('../../assets/images/magic.png')} // Altere com o caminho da sua imagem
                     style={styles.albumImage}
                 />
                 <View style={styles.musicDetails}>
                     <Text style={styles.musicTitle}>24K Magic</Text>
                     <Text style={styles.artist}>Bruno Mars</Text>
-                    <Text style={styles.album}>Álbum: 24K Magic</Text>
+                    <Text style={styles.album}>Álbum: </Text>
 
                     <TouchableOpacity 
                         onPress={() => navigation.navigate('24kmagic')}
@@ -28,13 +28,13 @@ export default function List() {
             {/* Música: That's What I Like */}
             <View style={styles.musicItem}>
                 <Image 
-                    source={require('../../assets/images/foto.png')} // Altere com o caminho da sua imagem
+                    source={require('../../assets/images/that.png')} // Altere com o caminho da sua imagem
                     style={styles.albumImage}
                 />
                 <View style={styles.musicDetails}>
                     <Text style={styles.musicTitle}>That's What I Like</Text>
                     <Text style={styles.artist}>Bruno Mars</Text>
-                    <Text style={styles.album}>Álbum: 24K Magic</Text>
+                    <Text style={styles.album}>Álbum:</Text>
 
                     <TouchableOpacity 
                         onPress={() => navigation.navigate('that')}
@@ -47,13 +47,13 @@ export default function List() {
             {/* Música: Versace On The Floor */}
             <View style={styles.musicItem}>
                 <Image 
-                    source={require('../../assets/images/foto.png')} // Altere com o caminho da sua imagem
+                    source={require('../../assets/images/versace.png')} // Altere com o caminho da sua imagem
                     style={styles.albumImage}
                 />
                 <View style={styles.musicDetails}>
                     <Text style={styles.musicTitle}>Versace On The Floor</Text>
                     <Text style={styles.artist}>Bruno Mars</Text>
-                    <Text style={styles.album}>Álbum: 24K Magic</Text>
+                    <Text style={styles.album}>Álbum: </Text>
 
                     <TouchableOpacity 
                         onPress={() => navigation.navigate('versace')}
@@ -72,10 +72,10 @@ export default function List() {
                 <View style={styles.musicDetails}>
                     <Text style={styles.musicTitle}>When I Was Your Man</Text>
                     <Text style={styles.artist}>Bruno Mars</Text>
-                    <Text style={styles.album}>Álbum: Unorthodox Jukebox</Text>
+                    <Text style={styles.album}>Álbum:</Text>
 
                     <TouchableOpacity 
-                        onPress={() => navigation.navigate('itwillrain')}
+                        onPress={() => navigation.navigate('man')}
                         style={styles.button}>
                         <Text style={styles.buttonText}>Ouvir Música</Text>
                     </TouchableOpacity>
@@ -91,7 +91,7 @@ export default function List() {
                 <View style={styles.musicDetails}>
                     <Text style={styles.musicTitle}>Die With A Smile</Text>
                     <Text style={styles.artist}>Bruno Mars</Text>
-                    <Text style={styles.album}>Álbum: Doo-Wops & Hooligans</Text>
+                    <Text style={styles.album}>Álbum:</Text>
 
                     <TouchableOpacity 
                         onPress={() => navigation.navigate('die')}
@@ -127,10 +127,11 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     albumImage: {
-        width: 80,
-        height: 80,
+        width: 100,
+        height: 100,
         borderRadius: 5,
         marginRight: 15,
+
     },
     musicDetails: {
         justifyContent: 'center',

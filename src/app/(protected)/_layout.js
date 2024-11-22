@@ -12,7 +12,7 @@ function CustomDrawerContent(props) {
   return (
     <View style={{ flex: 1 }}>
       <View style={{ marginTop: 20, justifyContent: "center", alignItems: "center", backgroundColor: "#B22222" }}>
-        <Image source={require('../../../src/assets/images/usuario.png')} style={{ width: 132, height: 132, borderRadius: 55, marginTop: 10 }} />
+        <Image source={require('../../../src/assets/images/usuario.png')} style={{ width: 120, height: 120, borderRadius: 65, marginTop: 10 }} />
         <Text style={{ textAlign: "center", fontSize: 16, fontFamily: "regular" }}>
           {user?.user?.nome}
         </Text>
@@ -70,19 +70,6 @@ const DrawerLayout = () => {
             headerTitle: "Álbum 4",
             drawerIcon: () => <Ionicons name="disc" size={20} color="black" />
           }}
-        />
-      <Drawer.Screen
-          name="itwillrain"
-          options={({ navigation }) => ({
-            drawerLabel: "it will rain",
-            headerTitle: "it will rain",
-            drawerItemStyle: { display: "none" },
-            headerLeft: () => (
-              <TouchableOpacity onPress={() => navigation.navigate('album1')} style={{ marginLeft: 10 }}>
-                <Ionicons name="arrow-back" size={24} color="black" />
-              </TouchableOpacity>
-            ),
-          })}
         />
 
         <Drawer.Screen

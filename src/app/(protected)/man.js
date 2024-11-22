@@ -132,7 +132,7 @@ export default function List() {
     return (
         <View style={styles.container}>
            
-            <Image source={require('../../assets/images/rain.png')} style={{width: 385, height: 280,}}/>
+            <Image source={require('../../assets/images/foto.png')} style={{width: 385, height: 280,}}/>
             <View style={{marginTop: 180, position: 'absolute'}}>
                
             <ScrollView style={styles.text}>
