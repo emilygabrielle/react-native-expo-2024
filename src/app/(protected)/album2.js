@@ -37,7 +37,7 @@ export default function List() {
                     <Text style={styles.album}>Álbum: </Text>
 
                     <TouchableOpacity 
-                        onPress={() => navigation.navigate('monn')}
+                        onPress={() => navigation.navigate('moon')}
                         style={styles.button}>
                         <Text style={styles.buttonText}>Ouvir Música</Text>
                     </TouchableOpacity>

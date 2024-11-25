@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Text, View, ScrollView, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { Text, View, ScrollView, StyleSheet, TouchableOpacity, Image, ActivityIndicator } from 'react-native';
 import { Ionicons } from "@expo/vector-icons";
 import { Audio } from 'expo-av';
 import Slider from '@react-native-community/slider';
@@ -11,6 +11,7 @@ export default function List() {
     const [progress, setProgress] = useState(0);
     const [duration, setDuration] = useState(0);
     const isMounted = useRef(true);
+    const [loading, setLoading] = useState(true); // Indica se o áudio está sendo carregado
     const navigation = useNavigation();
     
     const lyrics = [
@@ -82,7 +83,6 @@ export default function List() {
     ];
 
     /* Tocar, Pausar e verifica se está tocando*/
-
     async function playPauseAudio() {
         if (sound) {
             if (isPlaying) {
@@ -96,17 +96,20 @@ export default function List() {
 
     async function loadAudio() {
         try {
+            setLoading(true); // Inicia o carregamento
             const { sound } = await Audio.Sound.createAsync(
-                require("../../assets/audio/man.mp3"),
+                require("../../assets/audio/magic.mp3"),
                 { shouldPlay: false }
             );
             setSound(sound);
             const status = await sound.getStatusAsync();
             if (isMounted.current) {
                 setDuration(status.durationMillis);
+                setLoading(false); // Finaliza o carregamento
             }
         } catch (error) {
             console.error("Error loading audio:", error);
+            setLoading(false); // Finaliza o carregamento em caso de erro
         }
     }
 
@@ -122,8 +125,6 @@ export default function List() {
         };
     }, []);
 
-
-
     useEffect(() => {
         if (isPlaying && sound) {
             const interval = setInterval(async () => {
@@ -131,7 +132,7 @@ export default function List() {
                 if (isMounted.current && status.isPlaying) {
                     setProgress(status.positionMillis);
                 }
-            }, 1000);
+            }, 500); // Intervalo reduzido para melhorar a resposta do slider
             return () => clearInterval(interval);
         }
     }, [isPlaying, sound]);
@@ -153,35 +154,39 @@ export default function List() {
 
     return (
         <View style={styles.container}>
-        
-            <Image style={{width: 385, height: 280,}}/>
-            <View style={{marginTop: 180, position: 'absolute'}}>
-               
-            <ScrollView style={styles.text}>
-                {lyrics.map((line, index) => (
-                    <Text key={index} style={styles.lyricLine}>{line}</Text>
-                ))}
-           </ScrollView>
-          
-            <View style={styles.progressContainer}>
-                <Text style={styles.timeText}>{formatTime(progress)}</Text>
-                <Slider
-                    style={styles.slider}
-                    minimumValue={0}
-                    maximumValue={1}
-                    value={duration > 0 ? progress / duration : 0}
-                    onValueChange={handleSliderValueChange}
-                    minimumTrackTintColor="#000000"
-                    maximumTrackTintColor="#000000"
-                />
-                <Text style={styles.timeText}>{formatTime(duration)}</Text>
-            </View>
-            <TouchableOpacity onPress={playPauseAudio} style={styles.iconButton}>
-                <Ionicons name={isPlaying ? "pause" : "play"} size={40} color="#000000" />
-            </TouchableOpacity> 
-            </View>
+            {/* Adicione o ícone de carregamento enquanto o áudio não é carregado */}
+            {loading ? (
+                <ActivityIndicator size="large" color="#000" />
+            ) : (
+                <>
+                    <Image style={{ width: 385, height: 280 }} source={require('../../assets/images/heaven.png')} />
+                    <View style={{ marginTop: 180, position: 'absolute' }}>
+                        <ScrollView style={styles.text}>
+                            {lyrics.map((line, index) => (
+                                <Text key={index} style={styles.lyricLine}>{line}</Text>
+                            ))}
+                        </ScrollView>
 
-           
+                        <View style={styles.progressContainer}>
+                            <Text style={styles.timeText}>{formatTime(progress)}</Text>
+                            <Slider
+                                style={styles.slider}
+                                minimumValue={0}
+                                maximumValue={1}
+                                value={duration > 0 ? progress / duration : 0}
+                                onValueChange={handleSliderValueChange}
+                                minimumTrackTintColor="#000000"
+                                maximumTrackTintColor="#000000"
+                            />
+                            <Text style={styles.timeText}>{formatTime(duration)}</Text>
+                        </View>
+
+                        <TouchableOpacity onPress={playPauseAudio} style={styles.iconButton}>
+                            <Ionicons name={isPlaying ? "pause" : "play"} size={40} color="#000000" />
+                        </TouchableOpacity> 
+                    </View>
+                </>
+            )}
         </View>
     );
 }
@@ -221,16 +226,15 @@ const styles = StyleSheet.create({
         borderRadius: 40,
         borderColor: "white",
         backgroundColor: "white",
-   
     },
     lyricLine: {
         color: "black",
         textAlign: "center",
         flex: 1,
-        flexGrow: 1,
         fontSize: 16,
+        padding: 6,
     },
-    iconButton:{
+    iconButton: {
         alignItems: 'center',
     },
     backButton: {

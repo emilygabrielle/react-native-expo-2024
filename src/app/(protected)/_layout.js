@@ -88,6 +88,20 @@ const DrawerLayout = () => {
           })}
         />
 
+<Drawer.Screen
+          name="side"
+          options={({ navigation }) => ({
+            drawerLabel: "The Other Side",
+            headerTitle: "The Other Side",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album2')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" />
+              </TouchableOpacity>
+            ),
+          })}
+        />
+
         
         <Drawer.Screen
           name="die"
