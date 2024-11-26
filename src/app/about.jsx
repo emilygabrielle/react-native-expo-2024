@@ -22,7 +22,7 @@ export default function About() {
                 Com um design simples e eficiente, o aplicativo é ideal para quem ama cantar junto ou explorar os versos de seus hits favoritos.
             </Text>
             <Text style={styles.texto}>Funcionalidades principais:</Text>
-            <Text style={styles.texto}>• Catálogo Completo de Letras: O aplicativo contém todas as letras das músicas de Bruno Mars, desde seus primeiros álbuns até os lançamentos mais recentes.</Text>
+            <Text style={styles.texto}>• Catálogo Completo de Letras: O aplicativo contém as letras das músicas de Bruno Mars.</Text>
             <Text style={styles.texto}>• Biografia e Discografia: Além das letras, o aplicativo oferece uma breve biografia do artista.</Text>
             <Text style={styles.texto}>• Análises e Interpretações: O app também oferece análises das letras, ajudando os usuários a entender melhor as mensagens e temas abordados nas músicas.</Text>
 

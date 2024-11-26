@@ -4,6 +4,8 @@ import { Ionicons } from "@expo/vector-icons";
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useAuth } from '../../hooks/Auth/index';
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/native'; // Importando o hook useNavigation
@@ -17,7 +19,7 @@ function CustomDrawerContent(props) {
         <Image source={require('../../../src/assets/images/usuario.png')} style={{ width: 220, height: 200, borderRadius: 55, marginTop:-5 }} />
         <Text style={{ textAlign: "center", fontSize: 20, fontFamily: "regular", marginTop: -20}}>
           {user?.user?.nome}
-        </Text>
+     .   </Text>
       </View>
       <DrawerContentScrollView {...props}>
         <DrawerItemList {...props} />
@@ -38,7 +40,7 @@ const DrawerLayout = () => {
           options={{
             drawerLabel: "Principal",
             headerTitle: "Principal",
-            drawerIcon: () => <Ionicons name="home" size={20} color="black" />
+            drawerIcon: () => <Ionicons name="home" size={20} color="#282828" />
           }}
         />
         <Drawer.Screen
@@ -46,7 +48,7 @@ const DrawerLayout = () => {
           options={{
             drawerLabel: "Álbum 1",
             headerTitle: "Álbum 1",
-            drawerIcon: () => <MaterialIcons name="my-library-music" size={24} color="#008B8B" />
+            drawerIcon: () => <MaterialIcons name="my-library-music" size={24} color="#3e3e3e" />
           }}
         />
         <Drawer.Screen
@@ -54,7 +56,7 @@ const DrawerLayout = () => {
           options={{
             drawerLabel: "Álbum 2",
             headerTitle: "Álbum 2",
-            drawerIcon: () =>  <MaterialIcons name="my-library-music" size={24} color="#20B2AA" />
+            drawerIcon: () =>  <MaterialIcons name="my-library-music" size={24} color="#545454" />
           }}
         />
         <Drawer.Screen
@@ -62,7 +64,7 @@ const DrawerLayout = () => {
           options={{
             drawerLabel: "Álbum 3",
             headerTitle: "Álbum 3",
-            drawerIcon: () =>  <MaterialIcons name="my-library-music" size={24} color="#48D1CC" />
+            drawerIcon: () =>  <MaterialIcons name="my-library-music" size={24} color="#6a6a6a" />
           }}
         />
         <Drawer.Screen
@@ -70,7 +72,24 @@ const DrawerLayout = () => {
           options={{
             drawerLabel: "Álbum 4",
             headerTitle: "Álbum 4",
-            drawerIcon: () => <MaterialIcons name="my-library-music" size={24} color="#40E0D0" />
+            drawerIcon: () => <MaterialIcons name="my-library-music" size={24} color="#808080" />
+          }}
+        />
+         <Drawer.Screen
+          name="sugestao"
+          options={{
+            drawerLabel: "Sugestões",
+            headerTitle: "Sugestões",
+            drawerIcon: () =><FontAwesome5 name="pen-square" size={20} color="#a0a0a0" marginLeft={5} />
+          }}
+        />
+
+<Drawer.Screen
+          name="feedback"
+          options={{
+            drawerLabel: "Feedback",
+            headerTitle: "Feedback",
+            drawerIcon: () =><AntDesign name="smile-circle" size={20} color="black"  marginLeft={5}/>
           }}
         />
 
