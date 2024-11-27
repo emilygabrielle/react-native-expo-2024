@@ -98,7 +98,7 @@ export default function List() {
         try {
             setLoading(true); // Inicia o carregamento
             const { sound } = await Audio.Sound.createAsync(
-                require("../../assets/audio/magic.mp3"),
+                require("../../assets/audio/heaven.mp3"),
                 { shouldPlay: false }
             );
             setSound(sound);

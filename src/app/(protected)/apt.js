@@ -14,54 +14,69 @@ export default function List() {
     const [loading, setLoading] = useState(true); // Indica se o áudio está sendo carregado
     const navigation = useNavigation();
     
-    const lyrics = [
-
-
-"Same bed, but it feels just a little bit bigger now"  ,
-"Our song on the radio, but it don't sound the same"  ,
-"When our friends talk about you, all it does is just tear me down"  ,
-"'Cause my heart breaks a little when I hear your name"  ,
+    const lyrics = [ 
+        "채영이가 좋아하는",
+"(chaeyeong-iga joahaneun)",
+"랜덤 게임",
+"(raendeom geim)",
+"랜덤 게임",
+"(raendeom geim)",
+"Game start",
+"Game start",
 " ",
-"It all just sounds like, ooh"  ,
+"아파트, 아파트",
+"(apateu, apateu)",
+"아파트, 아파트",
+"(apateu, apateu)",
+"아파트, 아파트",
+"(apateu, apateu)",
+"Uh, uh-huh, uh-huh",
+"Uh, uh-huh, uh-huh",
 " ",
-"Mm, too young, too dumb to realize"  ,
-"That I should've bought you flowers and held your hand"  ,
-"Should've gave you all my hours when I had the chance"  ,
-"Take you to every party, 'cause all you wanted to do was dance"  ,
-"Now my baby is dancing, but she's dancing with another man"  ,
+"아파트, 아파트",
+"(apateu, apateu)",
+"아파트, 아파트",
+"(apateu, apateu)",
+"아파트, 아파트",
+"(apateu, apateu)",
+"Uh, uh-huh, uh-huh",
+"Uh, uh-huh, uh-huh",
 " ",
-"My pride, my ego, my needs and my selfish ways"  ,
-"Caused a good strong woman like you to walk out my life"  ,
-"Now I'll never, never get to clean up the mess I made, oh"  ,
-"And it haunts me every time I close my eyes"  ,
+"Kissy face, kissy face",
+"Kissy face, kissy face",
+"Sent to your phone, but",
+"Sent to your phone, but",
 " ",
-"It all just sounds like, ooh"  ,
+"I'm tryna kiss your lips for real (uh-huh, uh-huh)",
+"I'm tryna kiss your lips for real (uh-huh, uh-huh)",
+"Red hearts, red hearts",
+"Red hearts, red hearts",
+"That's what I'm on, yeah",
+"That's what I'm on, yeah",
+"Come give me somethin' I can feel, oh-oh-oh",
+"Come give me somethin' I can feel, oh-oh-oh",
 " ",
-"Mm, too young, too dumb to realize"  ,
-"That I should've bought you flowers and held your hand"  ,
-"Should've gave you all my hours when I had the chance"  ,
-"Take you to every party, 'cause all you wanted to do was dance"  ,
-"Now my baby is dancing, but she's dancing with another man"  ,
+"Don't you want me like I want you, baby?",
+"Don't you want me like I want you, baby?",
+"Don't you need me like I need you now?",
+"Don't you need me like I need you now?",
+"Sleep tomorrow, but tonight, go crazy",
+"Sleep tomorrow, but tonight, go crazy",
+"All you gotta do is just meet me at the",
+"All you gotta do is just meet me at the",
 " ",
-"Although it hurts"  ,
-"I'll be the first to say that I was wrong"  ,
-"Oh, I know I'm probably much too late"  ,
-"To try and apologize for my mistakes"  ,
-"But I just want you to know"  ,
-" ",
-"I hope he buys you flowers, I hope he holds your hand",  
-"Give you all his hours when he has the chance"  ,
-"Take you to every party"  ,
-"'Cause I remember how much you loved to dance"  ,
-" ",
-"Do all the things I should've done"  ,
-"When I was your man"  ,
-"Do all the things I should've done",  
-"When I was your man"  
+"아파트, 아파트",
+"(apateu, apateu)",
+"아파트, 아파트",
+"(apateu, apateu)",
+"아파트, 아파트",
+"(apateu, apateu)",
+"Uh, uh-huh, uh-huh",
+"Uh, uh-huh, uh-huh"
     ];
 
-  /* Tocar, Pausar e verifica se está tocando*/
-  async function playPauseAudio() {
+   /* Tocar, Pausar e verifica se está tocando*/
+   async function playPauseAudio() {
     if (sound) {
         if (isPlaying) {
             await sound.pauseAsync();
@@ -76,7 +91,7 @@ async function loadAudio() {
     try {
         setLoading(true); // Inicia o carregamento
         const { sound } = await Audio.Sound.createAsync(
-            require("../../assets/audio/man.mp3"),
+            require("../../assets/audio/apt.mp3"),
             { shouldPlay: false }
         );
         setSound(sound);
@@ -137,7 +152,7 @@ return (
             <ActivityIndicator size="large" color="#000" />
         ) : (
             <>
-                <Image style={{ width: 385, height: 280 }} source={require('../../assets/images/man.png')} />
+                <Image style={{ width: 385, height: 280 }} source={require('../../assets/images/apt.png')} />
                 <View style={{ marginTop: 180, position: 'absolute' }}>
                     <ScrollView style={styles.text}>
                         {lyrics.map((line, index) => (

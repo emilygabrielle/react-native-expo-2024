@@ -84,6 +84,20 @@ const DrawerLayout = () => {
           }}
         />
 
+      <Drawer.Screen
+          name="apt"
+          options={({ navigation }) => ({
+            drawerLabel: "APT",
+            headerTitle: "APT",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album1')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" />
+              </TouchableOpacity>
+            ),
+          })}
+        />
+
 <Drawer.Screen
           name="feedback"
           options={{
@@ -355,21 +369,33 @@ const DrawerLayout = () => {
         />
 
 
-        <Drawer.Screen
+<Drawer.Screen
           name="list"
-          options={{
+          options={({ navigation }) => ({
             drawerLabel: "Listagem",
-            headerTitle: "Listagem",
-            drawerIcon: () => <Ionicons name="list" size={20} color="black" />
-          }}
+            headerTitle: "  Listagem",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album4')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" /> 
+              </TouchableOpacity>
+            ),
+          })}
         />
-        <Drawer.Screen
+     
+
+<Drawer.Screen
           name="payment"
-          options={{
+          options={({ navigation }) => ({
             drawerLabel: "Pagamentos",
-            headerTitle: "Pagamentos",
-            drawerIcon: () => <Ionicons name="cash-outline" size={20} color="black" />
-          }}
+            headerTitle: "  Pagamentos",
+            drawerItemStyle: { display: "none" },
+            headerLeft: () => (
+              <TouchableOpacity onPress={() => navigation.navigate('album4')} style={{ marginLeft: 10 }}>
+                <Ionicons name="arrow-back" size={24} color="black" /> 
+              </TouchableOpacity>
+            ),
+          })}
         />
       </Drawer>
     </GestureHandlerRootView>

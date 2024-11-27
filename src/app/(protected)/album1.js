@@ -154,6 +154,39 @@ export default function List() {
                 </View>
             </View>
 
+            <View style={styles.musicItem}>
+                <Image 
+                    source={require('../../assets/images/apt.png')} // Substitua pelo caminho da sua imagem
+                    style={styles.albumImage}
+                />
+                <View style={styles.musicDetails}>
+                <Text style={styles.musicTitle}>APT</Text>
+                    <Text style={styles.artist}>Ano de lançamento: 2024</Text>
+                    <Text style={styles.album}>Cantores: Brunos Mars e Rosé </Text>
+
+                    <TouchableOpacity 
+                        onPress={() => toggleExpansion(4)} // Altera para expandir a barra
+                        style={styles.expandButton}>
+                        <FontAwesome name={expandedIndex === 4 ? "angle-up" : "angle-down"} size={24} color="#000" />
+                    </TouchableOpacity>
+
+                    {/* Barra expandível com mais informações */}
+                    {expandedIndex === 4 && (
+                        <Animated.View style={styles.expandedInfo}>
+                            <Text style={styles.expandedText}> A repetição da palavra '아파트' ('apartamento') não é apenas um refrão cativante, mas também uma alusão ao jogo de bebida coreano que leva o mesmo nome. Neste jogo, as pessoas empilham as mãos como se fossem andares de um prédio, e a pessoa que coloca a mão no número escolhido deve beber. Essa repetição cria uma atmosfera de diversão e camaradagem, típica de uma noite de festa coreana.</Text>
+
+                        </Animated.View>
+                    )}
+
+                    {/* Botão de ouvir música */}
+                    <TouchableOpacity 
+                        onPress={() => navigation.navigate('apt')}
+                        style={styles.button}>
+                        <Text style={styles.buttonText}>Ouvir Música</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+
          
         </ScrollView>
     );
