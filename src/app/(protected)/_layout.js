@@ -369,34 +369,28 @@ const DrawerLayout = () => {
         />
 
 
-<Drawer.Screen
+
+         <Drawer.Screen
           name="list"
-          options={({ navigation }) => ({
-            drawerLabel: "Listagem",
-            headerTitle: "  Listagem",
-            drawerItemStyle: { display: "none" },
-            headerLeft: () => (
-              <TouchableOpacity onPress={() => navigation.navigate('album4')} style={{ marginLeft: 10 }}>
-                <Ionicons name="arrow-back" size={24} color="black" /> 
-              </TouchableOpacity>
-            ),
-          })}
+          options={{
+            drawerLabel: " Listagem",
+            headerTitle: "Listagem",
+            drawerIcon: () => <MaterialIcons name="my-library-music" size={24} color="#3e3e3e" />
+          }}
         />
-     
 
 <Drawer.Screen
           name="payment"
-          options={({ navigation }) => ({
-            drawerLabel: "Pagamentos",
-            headerTitle: "  Pagamentos",
-            drawerItemStyle: { display: "none" },
-            headerLeft: () => (
-              <TouchableOpacity onPress={() => navigation.navigate('album4')} style={{ marginLeft: 10 }}>
-                <Ionicons name="arrow-back" size={24} color="black" /> 
-              </TouchableOpacity>
-            ),
-          })}
+          options={{
+            drawerLabel: "Pagamentos ",
+            headerTitle: " Pagamentos",
+            drawerIcon: () => <MaterialIcons name="my-library-music" size={24} color="#3e3e3e" />
+          }}
         />
+     
+     
+
+
       </Drawer>
     </GestureHandlerRootView>
   );

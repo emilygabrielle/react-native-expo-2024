@@ -12,6 +12,7 @@ const StackLayout = () => {
 
         if (!user?.authenticated) {
             router.replace("signIn")
+            //router.push("maintenance")
         }
         else {
             router.replace("(protected)");
