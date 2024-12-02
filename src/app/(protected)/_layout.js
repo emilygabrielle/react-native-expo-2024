@@ -387,6 +387,13 @@ const DrawerLayout = () => {
             drawerIcon: () => <MaterialIcons name="my-library-music" size={24} color="#3e3e3e" />
           }}
         />
+        <Drawer.Screen
+        name="details"
+        options={{
+          unmountOnBlur: true,
+          headerTitle: "Detalhes",
+          drawerItemStyle: { display: "none" },
+        }}/>
      
      
 
